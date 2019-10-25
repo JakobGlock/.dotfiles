@@ -4,7 +4,13 @@ IMPORTANT: This is a work in progress.
 
 ## Install
 
+Clone repo:
+
+`git clone https://github.com/JakobGlock/Dotfiles.git ~/.dotfiles`
+
+Run link script:
+
 ```
-ln -sf /<path to repo>/Dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf /<path to repo>/Dotfiles/.vimrc ~/.vimrc
+cd ~/.dotfiles
+./link.sh
 ```
