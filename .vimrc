@@ -1,3 +1,5 @@
+" .Vimrc
+" ..................................................
 set nocompatible              " required
 filetype off                  " required
 
@@ -5,14 +7,11 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
+" Vundle plugin manager
 Plugin 'gmarik/Vundle.vim'
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
+" Plugins
+" ..................................................
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -23,19 +22,15 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'airblade/vim-gitgutter'
 " ...
 
-" All of your Plugins must be added before the following line
+" Plugins need to be added before this line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Custom update time
-set updatetime=100
 
-" GitGutter settings
-set signcolumn=yes
 
-autocmd VimEnter * NERDTree
-let NERDTreeIgnore=['^__pycache__$', '\.pyc$', '\~$'] "ignore files in NERDTree
 
+" Indentation for file types
+" ...................................................
 " Python PEP8 indentation
 au BufNewFile,BufRead *.py
     \ setlocal tabstop=4 |
@@ -55,6 +50,16 @@ au BufNewFile,BufRead *.js, *.html, *.css
 " YAML indents
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+" Indent marker plugin
+" let g:indentLine_setColors = 0
+let g:indentLine_color_term = 239
+let g:indentLine_char = '⸽'
+
+
+
+
+" Other settings
+" ..................................................
 " Python highlighting
 let python_highlight_all=1
 syntax on
@@ -76,20 +81,32 @@ set numberwidth=4
 color gruvbox
 set background=dark
 
-" Indent marker plugin
-" let g:indentLine_setColors = 0
-let g:indentLine_color_term = 239
-let g:indentLine_char = '⸽'
+" Custom update time
+set updatetime=100
+
+" GitGutter settings
+set signcolumn=yes
+
 
 
 
 " NerdTree settings
+" ...................................................
+" Show NERDTree on start up
+autocmd VimEnter * NERDTree
+
+" Do not show these files in NERDTree
+let NERDTreeIgnore=['^__pycache__$', '\.pyc$', '\~$']
+
 " close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=0
+
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
+
 " Toggle NERDTree
 nmap <silent> <leader>k :NERDTreeToggle<cr>
+
 " expand to the path of the file in the current buffer
 nmap <silent> <leader>y :NERDTreeFind<cr>
 " Show NerdTree bookmarks by default
@@ -97,7 +114,13 @@ let NERDTreeShowBookmarks=1
 
 
 
-" Switch buffer key mapping
+
+" Custom keymappings
+" ...................................................
 nmap <S-J> :bp<cr>
 nmap <S-K> :bn<cr>
 nmap <S-X> :bd<cr>
+
+
+
+
