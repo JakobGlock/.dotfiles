@@ -12,5 +12,5 @@ Run link script:
 
 ```
 cd ~/.dotfiles
-./link.sh
+./install.sh
 ```
