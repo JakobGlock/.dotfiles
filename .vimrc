@@ -53,7 +53,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " Indent marker plugin
 " let g:indentLine_setColors = 0
 let g:indentLine_color_term = 239
-let g:indentLine_char = '⸽'
+let g:indentLine_char = '|'
 
 
 
