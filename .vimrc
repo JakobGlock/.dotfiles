@@ -120,7 +120,7 @@ let NERDTreeShowBookmarks=1
 nmap <S-J> :bp<cr>
 nmap <S-K> :bn<cr>
 nmap <S-X> :bd<cr>
-
+set pastetoggle=<F3>
 
 
 
