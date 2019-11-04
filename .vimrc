@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'rodjek/vim-puppet'
 " ...
 
 " Plugins need to be added before this line
