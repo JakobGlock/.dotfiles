@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd ~/dev/documentation/
+cd ~/dev/cheatsheets/
 tmux rename-window 'CheatSheet'
-tmux send-keys 'vim' C-m
+tmux send-keys 'vim sysadmin.md' C-m
 
 cd ~/dev/platform/
 tmux new-window
