@@ -2,7 +2,7 @@
 
 cd ~/dev/cheatsheets/
 tmux rename-window 'CheatSheet'
-tmux send-keys 'vim sysadmin.md' C-m
+tmux send-keys 'vim ~/.dotfiles/cheatsheets/sysadmin.md' C-m
 
 cd ~/dev/platform/
 tmux new-window
