@@ -21,6 +21,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rodjek/vim-puppet'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 " ...
 
 " Plugins need to be added before this line
