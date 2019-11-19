@@ -89,7 +89,8 @@ set updatetime=100
 " GitGutter settings
 set signcolumn=yes
 
-
+" Relative Numbers
+set relativenumber
 
 
 " NerdTree settings
