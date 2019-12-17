@@ -11,6 +11,7 @@ alias gc='git commit'
 alias ga='git add'
 alias gs='git status'
 alias gp='git pull'
+alias gd='git diff'
 
 # Tmux Aliases
 # -----------------------------------------------------------------------------
