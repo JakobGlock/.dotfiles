@@ -124,6 +124,7 @@ nmap <S-J> :bp<cr>
 nmap <S-K> :bn<cr>
 nmap <S-X> :bd<cr>
 set pastetoggle=<F3>
+nnoremap <silent> <F2> :edit<CR>
 
 
 
