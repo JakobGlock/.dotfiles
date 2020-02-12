@@ -22,6 +22,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rodjek/vim-puppet'
 Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'supercollider/scvim'
 " ...
 
 " Plugins need to be added before this line
