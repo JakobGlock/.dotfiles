@@ -6,7 +6,7 @@ IMPORTANT: This is a work in progress....
 
 Clone repo:
 
-`git clone https://github.com/JakobGlock/Dotfiles.git ~/.dotfiles`
+`git clone https://github.com/JakobGlock/.dotfiles.git ~/.dotfiles`
 
 Run link script:
 
