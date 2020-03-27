@@ -93,6 +93,8 @@ set signcolumn=yes
 " Relative Numbers
 set relativenumber
 
+" Turn off swapfiles
+set noswapfile
 
 " NerdTree settings
 " ...................................................
