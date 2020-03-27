@@ -126,9 +126,16 @@ let NERDTreeShowBookmarks=1
 nmap <S-J> :bp<cr>
 nmap <S-K> :bn<cr>
 nmap <S-X> :bd<cr>
+
+" F-Keys
+" ...................................................
+nnoremap <silent> <F2> :so ~/.vimrc<CR>
 set pastetoggle=<F3>
-nnoremap <silent> <F2> :edit<CR>
+
 nnoremap <silent> <F5> :write<CR>
 nnoremap <silent> <F6> :wqa<CR>
+nnoremap <silent> <F7> :edit<CR>
+
+nnoremap <silent> <F9> :Git<CR>
 
 
