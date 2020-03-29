@@ -1,5 +1,8 @@
 # General Aliases
 # -----------------------------------------------------------------------------
+alias ..='cd ..'
+alias .-='cd -'
+alias .~='cd ~'
 alias hibernate='systemctl suspend'
 alias sudo='sudo '
 alias lsa='ls -lsa'
@@ -7,6 +10,7 @@ alias lsa='ls -lsa'
 # Git Aliases
 # -----------------------------------------------------------------------------
 alias gpom='git push origin master'
+alias gpod='git push origin develop'
 alias gc='git commit'
 alias ga='git add'
 alias gs='git status'
