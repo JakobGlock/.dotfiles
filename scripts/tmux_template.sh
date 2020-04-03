@@ -17,7 +17,7 @@ done
 
 echo -e "\nPick a template:"
 
-read -s input
+read input
 clear
 
 i=0

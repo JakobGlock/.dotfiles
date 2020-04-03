@@ -137,5 +137,6 @@ nnoremap <silent> <F6> :wqa<CR>
 nnoremap <silent> <F7> :edit<CR>
 
 nnoremap <silent> <F9> :Git<CR>
+nnoremap <silent> <F10> :Git diff<CR>
 
 
