@@ -6,7 +6,7 @@
 search_dir=~/.dotfiles/tmux-templates/*
 input=0
 
-if [[ $1 -eq 0 ]]
+if [[ $# -lt 1 ]]
 then
 	clear
 	echo -e "\nChoose a template:\n"
