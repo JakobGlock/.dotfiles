@@ -9,8 +9,8 @@ tmux rename-window 'Multi'
 
 for ((i=1; i<$1; i++));
 do
-tmux split-window -h
-tmux select-layout tiled
+	tmux split-window -h
+	tmux select-layout tiled
 done
 
-tmux setw synchronize-panes $2
+tmux setw synchronize-panes "$2"
