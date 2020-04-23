@@ -1,7 +1,4 @@
 #!/bin/bash
-# This script spits out a list of scripts within a folder
-# which you can choose to run, by entering a number and 
-# pressing enter
 
 search_dir="$HOME/.dotfiles/tmux-templates/*"
 input=0

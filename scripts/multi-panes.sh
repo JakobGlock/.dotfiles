@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Create multiple panes within a tmux window
-
 # Usage
 # -----------------------------------------------------------------------------
 # ./multi-panes.sh <num_panes> <sync: (on|off)>
