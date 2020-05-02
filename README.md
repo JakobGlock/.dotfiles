@@ -14,3 +14,17 @@ Run link script:
 cd ~/.dotfiles
 ./install.sh
 ```
+
+
+
+Software to install:
+tldr
+python3
+pip3
+vagrant
+docker
+atom
+slack
+keepassX
+
+Pull down repos

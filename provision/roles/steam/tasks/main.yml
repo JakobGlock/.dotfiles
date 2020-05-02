@@ -1,0 +1,11 @@
+---
+- name: Add repository to APT
+  apt_repository:
+    repo: multiverse
+    state: present
+
+- name: Install Steam
+  apt:
+    name: steam
+    state: present
+    update_cache: yes

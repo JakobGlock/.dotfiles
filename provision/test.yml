@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Get current username
+      become: false
+      shell: whoami
+      register: current_username
+    
+    - name: Make directory
+      file:
+        state: directory
+        path: /tmp/{{ current_username.stdout }}

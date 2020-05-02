@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - cli_tools
+    - docker
+    - vagrant
+    - steam
+    - keepassxc
+
+  tasks:
+    - name: execute command
+      shell: "ls -lsa"
+      register: "output"
+  
+    - debug: var=output.stdout_lines

@@ -1,0 +1,10 @@
+---
+packages:
+  - shellcheck
+  - ncdu
+  - mc
+  - htop
+  - traceroute
+  - vim
+  - tmux
+  - ffmpeg 
