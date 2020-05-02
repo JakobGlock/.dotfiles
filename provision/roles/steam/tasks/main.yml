@@ -1,8 +1,12 @@
 ---
 - name: Add repository to APT
   apt_repository:
-    repo: multiverse
+    repo: "{{ item }}"
     state: present
+  loop:
+    - "deb http://archive.ubuntu.com/ubuntu/ bionic multiverse"
+    - "deb http://archive.ubuntu.com/ubuntu/ bionic-updates multiverse"
+    - "deb http://security.ubuntu.com/ubuntu/ bionic-security multiverse"
 
 - name: Install Steam
   apt:

@@ -23,6 +23,7 @@
 - name: Install Docker Module for Python
   pip:
     name: docker
+    executable: pip3
 
 - name: Install Docker-Compose
   get_url:
@@ -42,6 +43,6 @@
 
 - name: Add user current user to the Docker group
   user:
-    name: {{ current_username.stdout }}
+    name: "{{ current_username.stdout }}"
     group: docker
     append: yes
