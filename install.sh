@@ -7,6 +7,8 @@ echo ""
 read -r -s -p "INFO: What is your sudo password? " spw
 echo ""
 read -r -p "INFO: Is this a workstation or server (w|W|s|S) " mt
+echo ""
+read -r -p "INFO: Would you like to run the Ansible provisioner? (y|Y|n|N) " ap
 
 if [ ! "$mt" = "w" ] && [ ! "$mt" = "W" ] && [ ! "$mt" = "s" ] && [ ! "$mt" = "S" ]
 then
@@ -29,6 +31,14 @@ then
 	echo "INFO: Installing software"
 	echo "$spw" | sudo apt install -y ansible git 
 	echo ""
+
+	if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
+	then
+		ansible-playbook provision/setup.yml -b --extra-vars "ansible_become_pass=$spw"
+	else
+		echo ""
+		echo "INFO: Skipping Ansible provisioning"
+		echo ""
 else
 	# Install on server
 	echo "INFO: Installing symlinks for dotfiles"
