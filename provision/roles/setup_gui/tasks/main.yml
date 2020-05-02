@@ -1,4 +1,11 @@
 ---
+- name: Install Gnome-tweaks
+  apt:
+    name:
+      - gnome-tweaks
+      - gnome-shell-extensions
+    update_cache: yes
+
 - name: Set wallpaper picture to none
   become: false
   dconf:
@@ -27,3 +34,14 @@
   dconf:
     key: "/org/gnome/desktop/interface/gtk-theme"
     value: "'Arc-Dark'"
+
+- name: Adding Flat-remix font repository
+  apt_repository:
+    repo: ppa:daniruiz/flat-remix
+
+- name: Install Flat remix fonts
+  apt:
+    name:
+      - flat-remix-gtk
+      - flat-remix
+    update_cache: yes
