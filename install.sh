@@ -1,5 +1,9 @@
 #!/bin/bash
 
+GITCONFIG=~/.gitconfig
+GNOME_SETTINGS=/tmp/saved_settings.dconf
+VUNDLE_DIR=~/.vim/bundle/
+
 echo "INFO: Installing dotfiles and basic software"
 echo ""
 
@@ -8,12 +12,28 @@ read -r -s -p "INFO: What is your sudo password? " spw
 echo ""
 read -r -p "INFO: Is this a workstation or server (w|W|s|S) " mt
 read -r -p "INFO: Would you like to run the Ansible provisioner? (y|Y|n|N) " ap
-
+read -r -p "INFO: Restore Gnome settings from dconf file? (y|Y|n|N) " gnome
 
 if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
 then
-	read -r -p "INFO: What is your Github username? " github_username
-	read -r -p "INFO: What is your Github email address? " github_email
+	if [ ! -f "$GITCONFIG" ]
+	then
+		read -r -p "INFO: What is your Github username? " github_username
+		read -r -p "INFO: What is your Github email address? " github_email
+	fi
+fi
+
+if [ "$gnome" = "y" ] || [ "$gnome" = "Y" ]
+then
+	if [ -f "$GNOME_SETTINGS" ]
+	then
+		dconf load / < /tmp/saved_settings.dconf
+	else
+		echo "ERROR: $GNOME_SETTINGS does not exist"
+		echo "INFO: This is your gnome settings, I have mine on github in a private repo"
+		echo "INFO: You can get it by running this command: dconf load / < saved_settings.dconf"
+		exit 0
+	fi
 fi
 
 if [ ! "$mt" = "w" ] && [ ! "$mt" = "W" ] && [ ! "$mt" = "s" ] && [ ! "$mt" = "S" ]
@@ -41,11 +61,15 @@ then
 
 	if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
 	then
-		# Set git-config values
-		echo "INFO: Seting git-config username and email"
-		git config --global user.name $github_username
-		git config --global user.email $github_email
-		echo ""
+
+		if [ ! -f "$GITCONFIG" ]
+		then
+			# Set git-config values
+			echo "INFO: Seting git-config username and email"
+			git config --global user.name $github_username
+			git config --global user.email $github_email
+			echo ""
+		fi
 
 		echo "INFO: Running Ansible playbook"
 		ansible-playbook provision/setup.yml -b --extra-vars "ansible_become_pass='${spw}'"
@@ -63,7 +87,7 @@ else
 fi
 
 # Install Vundle plugin for Vim
-if [ ! -d ~/.vim/bundle/ ]; then
+if [ ! -d "$VUNDLE_DIR" ]; then
 	echo "INFO: Installing Vundle plugin for Vim"
 	echo ""
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
