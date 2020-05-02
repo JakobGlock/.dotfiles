@@ -10,4 +10,4 @@
     - name: Make directory
       file:
         state: directory
-        path: /tmp/{{ current_username.stdout }}
+        path: /tmp/"{{ current_username.stdout }}"
