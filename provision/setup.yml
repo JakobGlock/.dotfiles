@@ -2,17 +2,13 @@
 - hosts: localhost
   connection: local
 
-  pre_tasks:
-  - name: Update packages
-    apt:
-      name: "*"
-      state: latest
-      update_cache: yes
-
   roles:
+    - update_packages
     - cli_tools
     - docker
     - vagrant
     - steam
     - keepassxc
     - vivaldi
+    - dropbox
+    - setup_gui
