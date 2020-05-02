@@ -6,7 +6,7 @@
   loop:
     - "deb http://archive.ubuntu.com/ubuntu/ bionic multiverse"
     - "deb http://archive.ubuntu.com/ubuntu/ bionic-updates multiverse"
-    - "deb http://security.ubuntu.com/ubuntu/ bionic-security multiverse"
+      #- "deb http://security.ubuntu.com/ubuntu/ bionic-security multiverse"
 
 - name: Install Steam
   apt:

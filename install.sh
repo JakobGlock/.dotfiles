@@ -9,6 +9,13 @@ echo ""
 read -r -p "INFO: Is this a workstation or server (w|W|s|S) " mt
 read -r -p "INFO: Would you like to run the Ansible provisioner? (y|Y|n|N) " ap
 
+
+if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
+then
+	read -r -p "INFO: What is your Github username? " github_username
+	read -r -p "INFO: What is your Github email address? " github_email
+fi
+
 if [ ! "$mt" = "w" ] && [ ! "$mt" = "W" ] && [ ! "$mt" = "s" ] && [ ! "$mt" = "S" ]
 then
 	echo "ERROR: Choose a valid option, w|W for a workstation or s|S for a server"
@@ -30,10 +37,18 @@ then
 	echo "INFO: Installing software"
 	echo "$spw" | sudo apt install -y ansible git 
 	echo ""
+	
 
 	if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
 	then
-		ansible-playbook provision/setup.yml -b --extra-vars "ansible_become_pass=$spw"
+		# Set git-config values
+		echo "INFO: Seting git-config username and email"
+		git config --global user.name $github_username
+		git config --global user.email $github_email
+		echo ""
+
+		echo "INFO: Running Ansible playbook"
+		ansible-playbook provision/setup.yml -b --extra-vars "ansible_become_pass='${spw}'"
 	else
 		echo ""
 		echo "INFO: Skipping Ansible provisioning"

@@ -1,16 +1,18 @@
 ---
 - hosts: localhost
   connection: local
+
+  pre_tasks:
+  - name: Update packages
+    apt:
+      name: "*"
+      state: latest
+      update_cache: yes
+
   roles:
     - cli_tools
     - docker
     - vagrant
     - steam
     - keepassxc
-
-  tasks:
-    - name: execute command
-      shell: "ls -lsa"
-      register: "output"
-  
-    - debug: var=output.stdout_lines
+    - vivaldi
