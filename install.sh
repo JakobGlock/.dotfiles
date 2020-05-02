@@ -27,7 +27,7 @@ then
 	ln -sf ~/.dotfiles/.bash_aliases ~/.bash_aliases
 	
 	echo "INFO: Installing software"
-	echo "$spw" | sudo apt install -y ansible shellcheck ncdu mc htop traceroute vim tmux ffmpeg
+	echo "$spw" | sudo apt install -y ansible git 
 	echo ""
 else
 	# Install on server
