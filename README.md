@@ -1,6 +1,6 @@
 # .dotfiles
 
-IMPORTANT: This is a work in progress and will always be a work in progress.
+IMPORTANT: This is a work in progress and will always be a work in progress. 
 IMPORTANT: This is tailored to my own personal use, and is probably useless for anyone else.
 
 A repository which stores my basic configuration for Ubuntu.
