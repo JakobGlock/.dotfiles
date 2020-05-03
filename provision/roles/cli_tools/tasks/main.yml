@@ -2,6 +2,7 @@
 - name: Remove Snapd
   apt:
     name: snapd
+    state: absent
     purge: yes
 
 - name: Installing a collection of CLI tools
