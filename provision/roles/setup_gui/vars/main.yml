@@ -1,0 +1,8 @@
+---
+packages:
+  - gnome-tweaks
+  - gnome-shell-extensions
+  - flat-remix-gtk
+  - flat-remix
+  - arc-theme
+  - python-pip

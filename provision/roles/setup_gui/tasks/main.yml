@@ -1,10 +1,18 @@
 ---
-- name: Install Gnome-tweaks
+- name: Adding Flat-remix font repository
+  apt_repository:
+    repo: ppa:daniruiz/flat-remix
+
+- name: Install packages for GUI
   apt:
-    name:
-      - gnome-tweaks
-      - gnome-shell-extensions
+    name: "{{ item }}"
     update_cache: yes
+  loop: "{{ packages }}"
+
+- name: Install psutil Module for Python
+  pip:
+    name: psutil
+    executable: pip
 
 - name: Set wallpaper picture to none
   become: false
@@ -18,30 +26,9 @@
     key: "/org/gnome/desktop/background/primary-color"
     value: "'#232832'"
 
-- name: Install arc theme and python-pip
-  apt:
-    name:
-      - arc-theme
-      - python-pip
-
-- name: Install psutil Module for Python
-  pip:
-    name: psutil
-    executable: pip
-
 - name: Set GTK theme to Arc-Dark
   become: false
   dconf:
     key: "/org/gnome/desktop/interface/gtk-theme"
     value: "'Arc-Dark'"
 
-- name: Adding Flat-remix font repository
-  apt_repository:
-    repo: ppa:daniruiz/flat-remix
-
-- name: Install Flat remix fonts
-  apt:
-    name:
-      - flat-remix-gtk
-      - flat-remix
-    update_cache: yes
