@@ -21,3 +21,4 @@ packages:
 
 pip3_packages:
   - pycodestyle
+  - ansible-lint
