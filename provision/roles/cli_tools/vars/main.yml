@@ -18,6 +18,7 @@ packages:
   - gnome-calculator
   - gnome-logs
   - gnome-characters
+  - neofetch
 
 pip3_packages:
   - pycodestyle
