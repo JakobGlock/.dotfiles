@@ -1,9 +1,11 @@
 # .dotfiles
 
-IMPORTANT: This is a work in progress and will always be a work in progress. 
+IMPORTANT: This is a work in progress and will always be a work in progress.
+ 
 IMPORTANT: This is tailored to my own personal use, and is probably useless for anyone else.
 
 A repository which stores my basic configuration for Ubuntu.
+
 Tested on Ubuntu 18.04 LTS
 
 The provision directory holds some Ansible roles for installing software.
