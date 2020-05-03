@@ -1,4 +1,9 @@
 ---
+- name: Remove Snapd
+  apt:
+    name: snapd
+    purge: yes
+
 - name: Installing a collection of CLI tools
   apt:
     name: "{{ item }}"
