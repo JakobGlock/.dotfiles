@@ -55,7 +55,7 @@ then
 	ln -sf ~/.dotfiles/.bash_aliases ~/.bash_aliases
 	
 	echo "INFO: Installing software"
-	echo "$spw" | sudo -S apt install -y ansible git 
+	echo "$spw" | sudo -S apt install -y ansible aptitude
 	echo ""
 	
 
