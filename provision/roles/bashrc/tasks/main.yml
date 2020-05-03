@@ -1,0 +1,16 @@
+---
+- name: Insert ~/.env into .bashrc
+  become: false
+  lineinfile:
+    path: "{{ bashrc_file }}"
+    insertafter: EOF
+    state: present
+    line: "if [ -f ~/.env ]; then . ~/.env; fi"
+
+- name: Set Tmux to open by default in terminal in .bashrc
+  become: false
+  lineinfile:
+    path: "{{ bashrc_file }}"
+    insertafter: EOF
+    line: "if [[ ! $TERM =~ screen ]]; then exec tmux; fi"
+    state: present
