@@ -1,0 +1,18 @@
+---
+- name: Remove Snapd
+  apt:
+    name: snapd
+    purge: yes
+
+- name: Installing a collection of CLI tools
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: "{{ packages }}"
+  
+- name: Install pip3 packages
+  pip:
+    name: "{{ item }}"
+    executable: pip3
+  loop: "{{ pip3_packages }}"

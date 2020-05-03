@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+
+  roles:
+    - update_packages
+    - cli_tools
+    - docker
+    - vagrant
+    - steam
+    - keepassxc
+    - vivaldi
+    - dropbox
+    - setup_gui

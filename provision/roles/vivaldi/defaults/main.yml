@@ -1,0 +1,4 @@
+---
+vivaldi_tmp_dir: "/tmp/ansible_downloads/"
+vivaldi_tmp_deb: "{{ vivaldi_tmp_dir }}/vivaldi.deb"
+
