@@ -66,8 +66,8 @@ then
 		then
 			# Set git-config values
 			echo "INFO: Seting git-config username and email"
-			git config --global user.name $github_username
-			git config --global user.email $github_email
+			git config --global user.name "$github_username"
+			git config --global user.email "$github_email"
 			echo ""
 		fi
 
