@@ -19,6 +19,7 @@ packages:
   - gnome-logs
   - gnome-characters
   - neofetch
+  - thunderbird
 
 pip3_packages:
   - pycodestyle
