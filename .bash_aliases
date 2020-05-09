@@ -24,3 +24,7 @@ alias gb='git branch'
 alias tm='~/.dotfiles/scripts/tmux_template.sh'
 alias tl='tmux ls'
 alias tk='tmux kill-session'
+
+# Other Aliases
+# -----------------------------------------------------------------------------
+alias dotfiles='cd ~/.dotfiles && vim'
