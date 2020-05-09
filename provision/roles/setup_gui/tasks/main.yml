@@ -1,7 +1,8 @@
 ---
 - name: Adding Flat-remix font repository
   apt_repository:
-    repo: ppa:daniruiz/flat-remix
+    repo: "{{ item }}"
+  loop: "{{ repos }}"
 
 - name: Install packages for GUI
   apt:
@@ -26,9 +27,9 @@
     key: "/org/gnome/desktop/background/primary-color"
     value: "'#232832'"
 
-- name: Set GTK theme to Arc-Dark
+- name: Set GTK theme to Adapta-Nokto-Eta
   become: false
   dconf:
     key: "/org/gnome/desktop/interface/gtk-theme"
-    value: "'Arc-Dark'"
+    value: "'Adapta-Nokto-Eta'"
 

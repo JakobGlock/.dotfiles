@@ -4,8 +4,8 @@
     repo: "{{ item }}"
     state: present
   loop:
-    - "deb http://archive.ubuntu.com/ubuntu/ bionic multiverse"
-    - "deb http://archive.ubuntu.com/ubuntu/ bionic-updates multiverse"
+    - "deb http://archive.ubuntu.com/ubuntu/ focal multiverse"
+    - "deb http://archive.ubuntu.com/ubuntu/ focal-updates multiverse"
       #- "deb http://security.ubuntu.com/ubuntu/ bionic-security multiverse"
 
 - name: Install Steam

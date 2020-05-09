@@ -2,7 +2,13 @@
 packages:
   - gnome-tweaks
   - gnome-shell-extensions
+  - adapta-gtk-theme
   - flat-remix-gtk
   - flat-remix
   - arc-theme
   - python-pip
+
+repos:
+  - ppa:daniruiz/flat-remix
+  - ppa:tista/adapta
+
