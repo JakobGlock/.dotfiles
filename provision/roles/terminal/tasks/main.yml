@@ -1,0 +1,8 @@
+---
+- name: Clone Gnome Terminal Colors
+  git:
+    repo: https://github.com/metalelf0/gnome-terminal-colors.git
+    dest: /tmp
+
+- name: Install Gruvbox-dark theme for Gnome Terminal
+  shell: /tmp/gnome-terminal-colors/.install.sh -s gruvbox-dark -p gruvbox-dark --skip-dircolors

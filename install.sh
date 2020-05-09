@@ -61,6 +61,13 @@ then
 
 	if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
 	then
+		read -r -p "Have you created a terminal profile called 'gruvbox-dark'? (y|Y|n|N) " gruvbox
+
+		if [ ! "$gruvbox" = "y" ] || [ ! "$gruvbox" = "Y" ]
+		then
+			echo "ERROR: Create a terminal profile called 'gruvbox-dark' before proceeding"
+			exit 0
+		fi
 
 		if [ ! -f "$GITCONFIG" ]
 		then
