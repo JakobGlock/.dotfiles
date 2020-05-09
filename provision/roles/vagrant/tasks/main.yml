@@ -1,20 +1,12 @@
 ---
-- name: Ensure ansible_downloads directory exists
-  file: 
-    state: directory 
-    path: "{{vagrant_tmp_dir}}"
-
-- name: Install virtualbox for Debian OS family
+- name: Install VirtualBox
   apt:
-    name: "{{ vagrant_virtualbox_ver }}"
-  when: ( vagrant_virtualbox_install )
+    name: virtualbox
+    state: present
+    update_cache: yes
 
-- name: Download vagrant
-  get_url:
-    url: "{{ vagrant_url_deb }}"
-    dest: "{{vagrant_tmp_deb}}"
-
-- name: Install vagrant for Debian OS family
+- name: Install Vagrant
   apt:
-    deb: "{{vagrant_tmp_deb}}"
-
+    name: vagrant
+    state: present
+    update_cache: yes
