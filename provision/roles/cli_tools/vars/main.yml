@@ -21,6 +21,7 @@ packages:
   - neofetch
   - thunderbird
   - gnome-sushi
+  - rhythmbox
 
 pip3_packages:
   - pycodestyle
