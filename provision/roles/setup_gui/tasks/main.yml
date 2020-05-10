@@ -31,5 +31,5 @@
   become: false
   dconf:
     key: "/org/gnome/desktop/interface/gtk-theme"
-    value: "'Adapta-Nokto-Eta'"
+    value: "'Arc-Dark'"
 
