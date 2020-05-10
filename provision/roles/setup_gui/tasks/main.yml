@@ -13,7 +13,7 @@
 - name: Install psutil Module for Python
   pip:
     name: psutil
-    executable: pip
+    executable: pip3
 
 - name: Set wallpaper picture to none
   become: false
