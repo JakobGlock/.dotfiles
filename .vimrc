@@ -64,7 +64,7 @@ let g:indentLine_char = '|'
 " Other settings
 " ..................................................
 " Allowing editing of protected files
-cmap W w !sudo tee % >/dev/null<CR>
+cmap w!! w !sudo tee > /dev/null %
 
 " Python highlighting
 let python_highlight_all=1
