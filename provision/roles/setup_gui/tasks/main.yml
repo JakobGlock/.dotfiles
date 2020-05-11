@@ -33,3 +33,6 @@
     key: "/org/gnome/desktop/interface/gtk-theme"
     value: "'Arc-Dark'"
 
+- name: Remove Terminal window decorators
+  become: false
+  shell: exec gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
