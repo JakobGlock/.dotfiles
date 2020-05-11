@@ -44,5 +44,6 @@
 - name: Add user current user to the Docker group
   user:
     name: "{{ current_username.stdout }}"
-    group: docker
+    group: "{{ current_username.stdout }}"
+    groups: docker
     append: yes
