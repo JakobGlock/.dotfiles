@@ -6,7 +6,8 @@ IMPORTANT: This is tailored to my own personal use, and is probably useless for 
 
 A repository which stores my basic configuration for Ubuntu.
 
-Tested on Ubuntu 18.04 LTS
+Tested on Ubuntu 18.04 LTS & 20.04 LTS
+The Ansible roles are working on Ubuntu 20.04 LTS
 
 The provision directory holds some Ansible roles for installing software.
 
