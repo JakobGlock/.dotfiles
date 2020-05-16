@@ -28,3 +28,4 @@ alias tk='tmux kill-session'
 # Other Aliases
 # -----------------------------------------------------------------------------
 alias dotfiles='cd ~/.dotfiles && vim'
+alias raidstat='watch cat /proc/mdstat'
