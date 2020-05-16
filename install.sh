@@ -108,4 +108,12 @@ echo "INFO: Installing Vim plugins"
 vim +PluginInstall +qall
 echo ""
 
+if [ -x "$(command -v neofetch)" ]; 
+then
+	neofetch
+	echo ""
+else
+	echo "INFO: neofetch not installed, skipping";
+fi
+
 echo "INFO: Finished!"
