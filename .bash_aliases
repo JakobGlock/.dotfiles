@@ -5,7 +5,7 @@ alias .-='cd -'
 alias .~='cd ~'
 alias hibernate='systemctl suspend'
 alias sudo='sudo '
-alias lsa='ls -lsa'
+alias lsa='ls -lsah'
 
 # Git Aliases
 # -----------------------------------------------------------------------------
