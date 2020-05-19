@@ -54,13 +54,12 @@ then
 	ln -sf ~/.dotfiles/.env ~/.env
 	ln -sf ~/.dotfiles/.bash_aliases ~/.bash_aliases
 	
-	echo "INFO: Installing software"
-	echo "$spw" | sudo -S apt install -y ansible aptitude
-	echo ""
-	
-
 	if [ "$ap" = "y" ] || [ "$ap" = "Y" ]
 	then
+		echo "INFO: Installing software"
+		echo "$spw" | sudo -S apt install -y ansible aptitude
+		echo ""
+
 		read -r -p "Have you created a terminal profile called 'gruvbox-dark'? (y|Y|n|N) " gruvbox
 
 		if [ ! "$gruvbox" = "y" ] && [ ! "$gruvbox" = "Y" ]
@@ -113,7 +112,7 @@ then
 	neofetch
 	echo ""
 else
-	echo "INFO: neofetch not installed, skipping";
+	echo "ERROR: neofetch not installed, skipping";
 fi
 
 echo "INFO: Finished!"
