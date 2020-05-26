@@ -1,2 +1,7 @@
 ---
 bashrc_file: ~/.bashrc
+bashrc_lines:
+  - "if [ -f ~/.env ]; then . ~/.env; fi"
+  - "if [[ ! $TERM =~ screen ]]; then exec tmux; fi"
+
+

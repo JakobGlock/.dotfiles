@@ -10,6 +10,13 @@
     name: "{{ item }}"
     state: present
     update_cache: yes
+  loop: "{{ cli_tools }}"
+
+- name: Installing a collection of packages and programs
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
   loop: "{{ packages }}"
   
 - name: Install pip3 packages

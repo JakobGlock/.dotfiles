@@ -1,5 +1,5 @@
 ---
-packages:
+cli_tools:
   - shellcheck
   - ncdu
   - mc
@@ -11,19 +11,23 @@ packages:
   - git
   - python3
   - python3-pip
-  - python-cairo
   - curl
+  - neofetch
+
+packages:
+  - python3-venv
+  - python-cairo
+  - libcairo2-dev
   - gnome-system-monitor
-  - gnome-software
   - gnome-calculator
+  - gnome-software
   - gnome-logs
   - gnome-characters
-  - neofetch
-  - thunderbird
   - gnome-sushi
   - rhythmbox
   - gstreamer1.0-plugins-ugly
   - gstreamer1.0-libav
+  - thunderbird
 
 pip3_packages:
   - pycodestyle
