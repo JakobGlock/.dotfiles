@@ -13,6 +13,7 @@ cli_tools:
   - python3-pip
   - curl
   - neofetch
+  - jq
 
 packages:
   - python3-venv
