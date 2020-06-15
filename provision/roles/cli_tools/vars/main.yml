@@ -29,6 +29,7 @@ packages:
   - gstreamer1.0-plugins-ugly
   - gstreamer1.0-libav
   - thunderbird
+  - usb-creator-gtk
 
 pip3_packages:
   - pycodestyle
