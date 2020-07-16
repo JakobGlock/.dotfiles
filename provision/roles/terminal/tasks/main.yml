@@ -3,6 +3,7 @@
   git:
     repo: https://github.com/metalelf0/gnome-terminal-colors.git
     dest: /tmp/gnome-terminal-colors
+    version: master
 
 - name: Install Gruvbox-dark theme for Gnome Terminal
   become: false
