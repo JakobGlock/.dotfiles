@@ -7,7 +7,7 @@ cli_tools:
   - traceroute
   - vim
   - tmux
-  - ffmpeg 
+  - ffmpeg
   - git
   - python3
   - python3-pip
@@ -35,3 +35,4 @@ pip3_packages:
   - pycodestyle
   - ansible-lint
   - psutil
+  - yamllint

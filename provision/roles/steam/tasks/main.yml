@@ -6,10 +6,10 @@
   loop:
     - "deb http://archive.ubuntu.com/ubuntu/ focal multiverse"
     - "deb http://archive.ubuntu.com/ubuntu/ focal-updates multiverse"
-      #- "deb http://security.ubuntu.com/ubuntu/ bionic-security multiverse"
+    # - "deb http://security.ubuntu.com/ubuntu/ bionic-security multiverse"
 
 - name: Install Steam
   apt:
     name: steam
     state: present
-    update_cache: yes
+    update_cache: true

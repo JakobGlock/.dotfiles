@@ -3,10 +3,10 @@
   apt:
     name: virtualbox
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install Vagrant
   apt:
     name: vagrant
     state: present
-    update_cache: yes
+    update_cache: true

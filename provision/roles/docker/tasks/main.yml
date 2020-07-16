@@ -4,7 +4,7 @@
 
 - name: Install required system packages
   apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3', 'python3-pip', 'virtualenv', 'python3-setuptools']
+  loop: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3', 'python3-pip', 'virtualenv', 'python3-setuptools']
 
 - name: Add Docker GPG apt Key
   apt_key:
@@ -46,4 +46,4 @@
     name: "{{ current_username.stdout }}"
     group: "{{ current_username.stdout }}"
     groups: docker
-    append: yes
+    append: true
