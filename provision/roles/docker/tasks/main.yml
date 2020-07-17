@@ -46,14 +46,9 @@
     name: docker
     state: present
 
-- name: Get current username
-  become: false
-  shell: whoami
-  register: current_username
-
 - name: Add user current user to the Docker group
   user:
-    name: "{{ current_username.stdout }}"
-    group: "{{ current_username.stdout }}"
+    name: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     groups: docker
     append: true
