@@ -1,0 +1,11 @@
+---
+- name: Download Terraform
+  get_url:
+    url: "https://releases.hashicorp.com/terraform/{{ version }}/terraform_{{ version }}_linux_amd64.zip"
+    dest: /tmp/terraform_{{ version }}_linux_amd64.zip
+
+- name: Extract and install Terraform
+  unarchive:
+    src: /tmp/terraform_{{ version }}_linux_amd64.zip
+    dest: /usr/local/bin
+    creates: "{{ terraform_path }}"
