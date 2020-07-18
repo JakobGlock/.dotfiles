@@ -30,3 +30,4 @@ alias tcs='tmux choose-session'
 # -----------------------------------------------------------------------------
 alias dotfiles='cd ~/.dotfiles && vim'
 alias raidstat='watch -n 0.1 cat /proc/mdstat'
+alias tf="terraform"
