@@ -5,8 +5,13 @@
     state: present
     update_cache: true
 
-- name: Install Vagrant
-  apt:
-    name: vagrant
-    state: present
-    update_cache: true
+- name: Download Vagrant
+  get_url:
+    url: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_linux_amd64.zip"
+    dest: /tmp/vagrant_{{ vagrant_version }}_linux_amd64.zip
+
+- name: Extract and install Terraform
+  unarchive:
+    src: /tmp/vagrant_{{ vagrant_version }}_linux_amd64.zip
+    dest: /usr/local/bin
+    creates: "{{ vagrant_path }}"
