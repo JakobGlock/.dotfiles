@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Cheatsheet Window
-cd ~/dev/cheatsheets/
+cd ~/dev/tools/cheatsheets/
 tmux rename-window 'CheatSheet'
-tmux send-keys 'vim ~/dev/cheatsheets/sysadmin.md' C-m
+tmux send-keys 'vim ~/dev/tools/cheatsheets/sysadmin.md' C-m
 tmux split-window -v -p 20
 
 # Platform Repository
