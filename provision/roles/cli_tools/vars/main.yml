@@ -7,13 +7,14 @@ cli_tools:
   - traceroute
   - vim
   - tmux
-  - ffmpeg 
+  - ffmpeg
   - git
   - python3
   - python3-pip
   - curl
   - neofetch
   - jq
+  - dnsutils
 
 packages:
   - python3-venv
@@ -35,3 +36,4 @@ pip3_packages:
   - pycodestyle
   - ansible-lint
   - psutil
+  - yamllint

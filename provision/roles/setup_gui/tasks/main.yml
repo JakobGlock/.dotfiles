@@ -7,7 +7,7 @@
 - name: Install packages for GUI
   apt:
     name: "{{ item }}"
-    update_cache: yes
+    update_cache: true
   loop: "{{ packages }}"
 
 - name: Install psutil Module for Python

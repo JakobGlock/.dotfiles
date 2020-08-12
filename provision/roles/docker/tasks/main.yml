@@ -1,10 +1,17 @@
 ---
 - name: Install aptitude using apt
-  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+  apt:
+    name: aptitude
+    state: present
+    update_cache: true
+    force_apt_get: yes
 
 - name: Install required system packages
-  apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3', 'python3-pip', 'virtualenv', 'python3-setuptools']
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop: "{{ dependencies }}"
 
 - name: Add Docker GPG apt Key
   apt_key:
@@ -17,8 +24,11 @@
     state: present
 
 - name: Update apt and install Docker
-  apt: update-cache=yes name={{ item }} state=latest
-  loop: ['docker-ce', 'docker-ce-cli', 'containerd.io']
+  apt:
+    update_cache: true
+    name: "{{ item }}"
+    state: present
+  loop: "{{ docker_packages }}"
 
 - name: Install Docker Module for Python
   pip:
@@ -36,14 +46,9 @@
     name: docker
     state: present
 
-- name: Get current username
-  become: false
-  shell: whoami
-  register: current_username
-
 - name: Add user current user to the Docker group
   user:
-    name: "{{ current_username.stdout }}"
-    group: "{{ current_username.stdout }}"
+    name: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     groups: docker
-    append: yes
+    append: true

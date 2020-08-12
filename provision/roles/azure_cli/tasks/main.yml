@@ -1,0 +1,7 @@
+---
+# quick and dirty way to do this, should probably do all the steps manually
+# https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest
+- name: Install Azure CLI
+  command:
+    cmd: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    creates: /usr/bin/az

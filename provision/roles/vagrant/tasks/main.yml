@@ -1,12 +1,32 @@
 ---
+- name: Add VirtualBox key
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox.asc
+    state: present
+
+- name: Add VirtualBox key
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    state: present
+
+- name: Add VirtualBox repository to APT
+  apt_repository:
+    repo: deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian focal contrib
+    state: present
+
 - name: Install VirtualBox
   apt:
-    name: virtualbox
+    name: virtualbox-6.0
     state: present
-    update_cache: yes
+    update_cache: true
 
-- name: Install Vagrant
-  apt:
-    name: vagrant
-    state: present
-    update_cache: yes
+- name: Download Vagrant
+  get_url:
+    url: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_linux_amd64.zip"
+    dest: /tmp/vagrant_{{ vagrant_version }}_linux_amd64.zip
+
+- name: Extract and install Vagrant
+  unarchive:
+    src: /tmp/vagrant_{{ vagrant_version }}_linux_amd64.zip
+    dest: /usr/local/bin
+    creates: "{{ vagrant_path }}"

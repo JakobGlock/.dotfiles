@@ -3,22 +3,22 @@
   apt:
     name: snapd
     state: absent
-    purge: yes
+    purge: true
 
 - name: Installing a collection of CLI tools
   apt:
     name: "{{ item }}"
     state: present
-    update_cache: yes
+    update_cache: true
   loop: "{{ cli_tools }}"
 
 - name: Installing a collection of packages and programs
   apt:
     name: "{{ item }}"
     state: present
-    update_cache: yes
+    update_cache: true
   loop: "{{ packages }}"
-  
+
 - name: Install pip3 packages
   pip:
     name: "{{ item }}"

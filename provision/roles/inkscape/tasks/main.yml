@@ -1,0 +1,11 @@
+---
+- name: Add InkScape APT repository
+  apt_repository:
+    repo: ppa:inkscape.dev/stable
+    state: present
+
+- name: Install InkScape
+  apt:
+    name: inkscape
+    state: present
+    update_cache: true

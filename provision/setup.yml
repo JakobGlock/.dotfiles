@@ -11,6 +11,9 @@
     - keepassxc
     - vivaldi
     - dropbox
+    - inkscape
+    - terraform
+    - azure_cli
     - setup_gui
     - bashrc
     - terminal

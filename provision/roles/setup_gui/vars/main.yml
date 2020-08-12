@@ -2,14 +2,13 @@
 packages:
   - gnome-tweaks
   - gnome-shell-extensions
-#  - adapta-gtk-theme
+  # - adapta-gtk-theme
   - flat-remix-gtk
   - flat-remix
   - arc-theme
-#  - python-pip
+  # - python-pip
   - gnome-shell-extension-dash-to-panel
 
 repos:
   - ppa:daniruiz/flat-remix
-#  - ppa:tista/adapta
-
+  # - ppa:tista/adapta
