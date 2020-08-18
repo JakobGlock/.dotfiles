@@ -15,6 +15,7 @@ cli_tools:
   - neofetch
   - jq
   - dnsutils
+  - net-tools
 
 packages:
   - python3-venv
