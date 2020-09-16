@@ -16,6 +16,7 @@ cli_tools:
   - jq
   - dnsutils
   - net-tools
+  - whois
 
 packages:
   - python3-venv
