@@ -24,6 +24,8 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'supercollider/scvim'
 Plugin 'hashivim/vim-terraform'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " ...
 
 " Plugins need to be added before this line
@@ -130,6 +132,7 @@ let NERDTreeShowBookmarks=1
 nmap <S-J> :bp<cr>
 nmap <S-K> :bn<cr>
 nmap <S-X> :bd<cr>
+nmap <C-p> :Files<cr>
 
 " F-Keys
 " ...................................................
