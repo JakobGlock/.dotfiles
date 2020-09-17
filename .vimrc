@@ -129,9 +129,9 @@ let NERDTreeShowBookmarks=1
 
 " Custom keymappings
 " ...................................................
-nmap <S-J> :bp<cr>
-nmap <S-K> :bn<cr>
-nmap <S-X> :bd<cr>
+nmap <C-h> :bp<cr>
+nmap <C-l> :bn<cr>
+nmap <C-x> :bd<cr>
 nmap <C-p> :Files<cr>
 
 " F-Keys
