@@ -105,7 +105,7 @@ set noswapfile
 " NerdTree settings
 " ...................................................
 " Show NERDTree on start up
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " Do not show these files in NERDTree
 let NERDTreeIgnore=['^__pycache__$', '\.pyc$', '\~$']
