@@ -33,6 +33,7 @@ packages:
   - gstreamer1.0-libav
   - thunderbird
   - usb-creator-gtk
+  - libjack-jackd2-dev
 
 pip3_packages:
   - pycodestyle
