@@ -35,6 +35,7 @@ packages:
   - usb-creator-gtk
   - libjack-jackd2-dev
   - libasound2-dev
+  - unclutter
 
 pip3_packages:
   - pycodestyle
