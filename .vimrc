@@ -133,6 +133,8 @@ nmap <C-h> :bp<cr>
 nmap <C-l> :bn<cr>
 nmap <C-x> :bd<cr>
 nmap <C-p> :Files<cr>
+nmap <leader>e :e ~/.vimrc<cr>
+autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " F-Keys
 " ...................................................
@@ -145,5 +147,4 @@ nnoremap <silent> <F7> :edit<CR>
 
 nnoremap <silent> <F9> :Git<CR>
 nnoremap <silent> <F10> :Git diff<CR>
-
 
