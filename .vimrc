@@ -129,12 +129,14 @@ let NERDTreeShowBookmarks=1
 
 " Custom keymappings
 " ...................................................
-nmap <C-h> :bp<cr>
-nmap <C-l> :bn<cr>
-nmap <C-x> :bd<cr>
-nmap <C-p> :Files<cr>
+nmap <leader>h :bp<cr>
+nmap <leader>l :bn<cr>
+nmap <leader>x :bd<cr>
+nmap <leader>p :Files<cr>
 nmap <leader>e :e ~/.vimrc<cr>
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+
 
 " F-Keys
 " ...................................................
@@ -148,3 +150,9 @@ nnoremap <silent> <F7> :edit<CR>
 nnoremap <silent> <F9> :Git<CR>
 nnoremap <silent> <F10> :Git diff<CR>
 
+
+
+" Cursor hightlighting
+" ................................................... 
+:hi CursorLine    guibg=#2b2b2b
+:nnoremap <Leader>c :set cursorline!<CR>
