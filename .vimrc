@@ -102,6 +102,9 @@ set relativenumber
 " Turn off swapfiles
 set noswapfile
 
+" Highlight 80th column in Python file
+autocmd FileType python set colorcolumn=80
+
 " NerdTree settings
 " ...................................................
 " Show NERDTree on start up
