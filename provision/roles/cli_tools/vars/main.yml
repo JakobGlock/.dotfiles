@@ -36,6 +36,7 @@ packages:
   - libjack-jackd2-dev
   - libasound2-dev
   - unclutter
+  - dconf-editor
 
 pip3_packages:
   - pycodestyle
