@@ -17,6 +17,7 @@ cli_tools:
   - dnsutils
   - net-tools
   - whois
+  - ripgrep
 
 packages:
   - python3-venv
@@ -35,7 +36,6 @@ packages:
   - usb-creator-gtk
   - libjack-jackd2-dev
   - libasound2-dev
-  - unclutter
   - dconf-editor
 
 pip3_packages:
