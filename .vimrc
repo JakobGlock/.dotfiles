@@ -136,6 +136,7 @@ nmap <leader>h :bp<cr>
 nmap <leader>l :bn<cr>
 nmap <leader>x :bd<cr>
 nmap <leader>p :Files<cr>
+nmap <leader>g :GFiles<cr>
 nmap <leader>e :e ~/.vimrc<cr>
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
