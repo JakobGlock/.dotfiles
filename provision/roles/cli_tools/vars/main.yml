@@ -40,6 +40,8 @@ packages:
 
 pip3_packages:
   - pycodestyle
+  - flake8
+  - pylint
   - ansible-lint
   - psutil
   - yamllint
