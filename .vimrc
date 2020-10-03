@@ -132,31 +132,31 @@ let NERDTreeShowBookmarks=1
 
 " Custom keymappings
 " ...................................................
+" Buffer manipulation
 nmap <leader>h :bp<cr>
 nmap <leader>l :bn<cr>
 nmap <leader>x :bd<cr>
+
+" FZF
 nmap <leader>p :Files<cr>
 nmap <leader>g :GFiles<cr>
+nmap <leader>rg :Rg<cr>
+
+" Edit vimrc
 nmap <leader>e :e ~/.vimrc<cr>
+
+" Run current python script in buffer
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-
-
 " F-Keys
-" ...................................................
 nnoremap <silent> <F2> :so ~/.vimrc<CR>
 set pastetoggle=<F3>
-
 nnoremap <silent> <F5> :write<CR>
 nnoremap <silent> <F6> :wqa<CR>
 nnoremap <silent> <F7> :edit<CR>
-
 nnoremap <silent> <F9> :Git<CR>
 nnoremap <silent> <F10> :Git diff<CR>
 
-
-
 " Cursor hightlighting
-" ................................................... 
 :hi CursorLine    guibg=#2b2b2b
 :nnoremap <Leader>c :set cursorline!<CR>
