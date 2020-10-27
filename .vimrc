@@ -151,6 +151,12 @@ nmap <leader>e :e ~/.vimrc<cr>
 " Run current python script in buffer
 autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+" For openFrameworks, build and run project
+autocmd FileType cpp map <buffer> <leader>r :w<CR>:exec '!make -j16 && make run'<CR>
+
+" Run the current go script in buffer
+autocmd FileType go map <buffer> <leader>r :w<CR>:exec '!go run' shellescape(@%, 1)<CR>
+
 " F-Keys
 nnoremap <silent> <F2> :so ~/.vimrc<CR>
 set pastetoggle=<F3>
