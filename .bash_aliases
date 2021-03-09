@@ -35,4 +35,7 @@ alias SCBoot='$HOME/.vim/bundle/scvim/bin/start_pipe'
 
 # Work Aliases live somewhere else
 # -----------------------------------------------------------------------------
-. ~/.bash_aliases_work
+if [ -f ~/.bash_aliases_work ]; then
+    . ~/.bash_aliases_work
+fi
+
