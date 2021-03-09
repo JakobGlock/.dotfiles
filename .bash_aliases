@@ -32,3 +32,7 @@ alias dotfiles='cd ~/.dotfiles && vim'
 alias raidstat='watch -n 0.1 cat /proc/mdstat'
 alias tf="terraform"
 alias SCBoot='$HOME/.vim/bundle/scvim/bin/start_pipe'
+
+# Work Aliases live somewhere else
+# -----------------------------------------------------------------------------
+. ~/.bash_aliases_work
