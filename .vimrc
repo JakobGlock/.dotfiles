@@ -57,7 +57,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Terraform indent
-autocmd BufNewFile,BufRead *.tf setlocal ts=2 sts=2 sw=2 expandtab
+autocmd BufNewFile,BufRead *.tf,*.tfvars setlocal ts=2 sts=2 sw=2 expandtab
 
 " Indent marker plugin
 " let g:indentLine_setColors = 0

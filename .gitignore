@@ -1,4 +1,5 @@
 *.swp
 *.swo
+.bash_aliases_work
 
 provision/test.yml
