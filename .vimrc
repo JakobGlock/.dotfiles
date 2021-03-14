@@ -69,8 +69,6 @@ let g:indentLine_char = '|'
 
 " Other settings
 " ..................................................
-" Allowing editing of protected files
-cmap w!! w !sudo tee > /dev/null %
 
 " Python highlighting
 let python_highlight_all=1
@@ -108,10 +106,16 @@ set noswapfile
 " Highlight 80th column in Python file
 autocmd FileType python set colorcolumn=80
 
+" Remove all tailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+
+
+
 " NerdTree settings
 " ...................................................
-" Show NERDTree on start up
-" autocmd VimEnter * NERDTree
+" Show NerdTree bookmarks by default
+let NERDTreeShowBookmarks=1
 
 " Do not show these files in NERDTree
 let NERDTreeIgnore=['^__pycache__$', '\.pyc$', '\~$']
@@ -127,8 +131,6 @@ nmap <silent> <leader>k :NERDTreeToggle<cr>
 
 " expand to the path of the file in the current buffer
 nmap <silent> <leader>y :NERDTreeFind<cr>
-" Show NerdTree bookmarks by default
-let NERDTreeShowBookmarks=1
 
 
 
@@ -169,3 +171,6 @@ nnoremap <silent> <F10> :Git diff<CR>
 " Cursor hightlighting
 :hi CursorLine    guibg=#2b2b2b
 :nnoremap <Leader>c :set cursorline!<CR>
+
+" Allowing editing of protected files
+cmap w!! w !sudo tee > /dev/null %
