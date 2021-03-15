@@ -18,6 +18,7 @@ cli_tools:
   - net-tools
   - whois
   - ripgrep
+  - tig
 
 packages:
   - python3-venv
