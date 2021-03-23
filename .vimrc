@@ -38,7 +38,7 @@ filetype plugin indent on    " required
 " Indentation for file types
 " ...................................................
 " Python PEP8 indentation
-au BufNewFile,BufRead *.py
+autocmd BufNewFile,BufRead *.py
     \ setlocal tabstop=4 |
     \ setlocal softtabstop=4 |
     \ setlocal shiftwidth=4 |
@@ -47,7 +47,7 @@ au BufNewFile,BufRead *.py
     \ setlocal fileformat=unix
 
 " HTML, JS and css indents
-au BufNewFile,BufRead *.js, *.html, *.css
+autocmd BufNewFile,BufRead *.js, *.html, *.css
     \ setlocal tabstop=2 |
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2 |
