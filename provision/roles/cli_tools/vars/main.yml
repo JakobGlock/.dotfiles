@@ -20,6 +20,7 @@ cli_tools:
   - ripgrep
   - tig
   - vlc
+  - moc
 
 packages:
   - python3-venv
