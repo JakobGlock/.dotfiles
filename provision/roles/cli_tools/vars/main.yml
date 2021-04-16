@@ -19,6 +19,8 @@ cli_tools:
   - whois
   - ripgrep
   - tig
+  - vlc
+  - moc
 
 packages:
   - python3-venv

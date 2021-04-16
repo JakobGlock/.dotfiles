@@ -34,6 +34,8 @@ alias tf="terraform"
 alias SCBoot='$HOME/.vim/bundle/scvim/bin/start_pipe'
 alias mountSecret='sudo cryptsetup luksOpen /dev/sdb1 secret && sudo mount /dev/mapper/secret /mnt/tmp'
 alias umountSecret='sudo umount /mnt/tmp && sudo cryptsetup luksClose /dev/mapper/secret'
+alias playSleepbotRadio='nvlc ~/Music/RadioStations/SleepBotRadio.pls'
+alias moc='mocp -m'
 
 # Work Aliases live somewhere else
 # ------------------------------------------------------------------------------
