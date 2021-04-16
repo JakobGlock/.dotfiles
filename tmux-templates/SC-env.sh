@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Clear Current Windows
+tmux kill-window -a
+
 # Supercollider Window
 cd ~/dev/
 tmux rename-window "Supercollider"

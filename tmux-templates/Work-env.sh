@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Clear Current Windows
+tmux kill-window -a
+
 # Cheatsheet Window
 cd ~/dev/tools/cheatsheets/
 tmux rename-window 'CheatSheet'

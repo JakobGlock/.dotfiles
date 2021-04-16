@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Clear Current Windows
+tmux kill-window -a
+
 tmux rename-window 'Development'
 tmux send-keys 'cd ~/dev && vim' C-m
 tmux split-window -v -p 10
