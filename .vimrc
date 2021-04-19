@@ -47,7 +47,7 @@ autocmd BufNewFile,BufRead *.py
     \ setlocal fileformat=unix
 
 " HTML, JS and css indents
-autocmd BufNewFile,BufRead *.js, *.html, *.css
+autocmd BufNewFile,BufRead *.js,*.html,*.css
     \ setlocal tabstop=2 |
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2 |
@@ -62,7 +62,7 @@ autocmd FileType yaml
     \ setlocal autoindent
 
 " Terraform indent
-autocmd BufNewFile,BufRead *.tf, *.tfvars
+autocmd BufNewFile,BufRead *.tf,*.tfvars
     \ setlocal ts=2 |
     \ setlocal sts=2 |
     \ setlocal sw=2 |
