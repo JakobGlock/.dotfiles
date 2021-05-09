@@ -54,7 +54,7 @@ autocmd BufNewFile,BufRead *.js,*.html,*.css
     \ setlocal shiftwidth=2 |
     \ setlocal autoindent
 
-" YAML indents
+" YAML Indents
 autocmd FileType yaml
     \ setlocal ts=2 |
     \ setlocal sts=2 |
@@ -62,11 +62,19 @@ autocmd FileType yaml
     \ setlocal expandtab |
     \ setlocal autoindent
 
-" Terraform indent
+" Terraform Indents
 autocmd BufNewFile,BufRead *.tf,*.tfvars
     \ setlocal ts=2 |
     \ setlocal sts=2 |
     \ setlocal sw=2 |
+    \ setlocal expandtab |
+    \ setlocal autoindent
+
+" Rust Indents
+autocmd BufNewFile,BufRead *.rs
+    \ setlocal ts=4 |
+    \ setlocal sts=4 |
+    \ setlocal sw=4 |
     \ setlocal expandtab |
     \ setlocal autoindent
 
