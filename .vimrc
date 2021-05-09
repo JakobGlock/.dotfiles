@@ -26,6 +26,7 @@ Plugin 'supercollider/scvim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'rust-lang/rust.vim'
 " ...
 
 " Plugins need to be added before this line
