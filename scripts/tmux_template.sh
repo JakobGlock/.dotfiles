@@ -1,43 +1,51 @@
 #!/bin/bash
 
-search_dir="$HOME/.dotfiles/tmux-templates/*"
-input=0
+function new_tmux_session {
+    SESSION_NAME=$(tmux display-message -p '#S')
 
-if [[ $# -lt 1 ]]
-then
-	clear
-	echo -e "\nChoose a template:\n"
-	
-	i=0
-	for filename in $search_dir;
-	do
-		i=$((i + 1))	
-		f=$(basename "$filename")
-		echo -e "\t$i. ""${f%.*}"
-	done
-	
-	echo -e "\nPick a template:"
-	
-	read -r input
-	clear
-else
-	input=$1
-fi
+    clear
+    read -p "Name the Tmux session: " -r INPUT
+    tmux has-session -t $INPUT
+    if [ $? != 0 ]
+    then
+        tmux new-session -s $INPUT -d $1
+        tmux switch-client -t $INPUT
+        tmux kill-session -t $SESSION_NAME
+    else
+        echo "Session $INPUT already exists"
+        exit
+    fi
+}
 
-i=0
-flag=false
-for filename in $search_dir;
+clear
+SEARCH_DIR="$HOME/.dotfiles/tmux-templates"
+cd $SEARCH_DIR
+
+MESSAGE="Select a Tmux template: "
+echo $MESSAGE
+
+files=(* Exit)
+
+PS3='Please enter your choice: '
+select opt in "${files[@]}"
 do
-	i=$((i + 1))
-	if [ "$input" -eq $i ]
-	then
-		flag=true
-		$filename && break
-	fi
+    case $opt in
+        "Dev-env.sh")
+            new_tmux_session "$SEARCH_DIR/$opt"
+            ;;
+        "Home-env.sh")
+            new_tmux_session "$SEARCH_DIR/$opt"
+            ;;
+        "SC-env.sh")
+            new_tmux_session "$SEARCH_DIR/$opt"
+            ;;
+        "Work-env.sh")
+            new_tmux_session "$SEARCH_DIR/$opt"
+            ;;
+        "Exit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
 done
 
-if [ "$flag" == 'false' ]
-then
-	echo "WARNING: Template does not exist, exiting"
-	sleep 2
-fi
