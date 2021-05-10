@@ -4,9 +4,9 @@
 tmux kill-window -a
 
 # Cheatsheet Window
-cd ~/dev/tools/cheatsheets/
+tmux new-window -c ~/dev/tools/cheatsheets
 tmux rename-window 'CheatSheet'
-tmux send-keys 'vim ~/dev/tools/cheatsheets/sysadmin.md' C-m
+tmux send-keys 'vim sysadmin.md' C-m
 tmux split-window -v -p 20 -c ~/dev/tools/cheatsheets
 
 # Platform Repository
@@ -29,4 +29,6 @@ tmux split-window -v -p 20 -c ~/dev/kubespray
 
 # Other Windows
 tmux new-window -c ~/dev
+tmux send-keys 'tmux move-window -r && clear' C-m
 tmux rename-window 'ssh'
+
