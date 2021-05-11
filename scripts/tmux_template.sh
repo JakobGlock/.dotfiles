@@ -26,6 +26,8 @@ echo $MESSAGE
 
 files=(* Exit)
 
+cd ~/dev
+
 PS3='Please enter your choice: '
 select opt in "${files[@]}"
 do
