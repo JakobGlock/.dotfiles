@@ -27,6 +27,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'google/vim-jsonnet'
 " ...
 
 " Plugins need to be added before this line
