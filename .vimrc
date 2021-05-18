@@ -129,6 +129,9 @@ autocmd FileType python set colorcolumn=80
 " Remove all tailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" Switch on cursorline by default
+set cursorline
+
 
 
 
