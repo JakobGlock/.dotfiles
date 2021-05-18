@@ -21,6 +21,7 @@ cli_tools:
   - tig
   - vlc
   - moc
+  - xclip
 
 packages:
   - python3-venv
