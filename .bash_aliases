@@ -28,7 +28,7 @@ alias tcs='tmux choose-session'
 
 # Other Aliases
 # ------------------------------------------------------------------------------
-alias dotfiles='cd ~/.dotfiles && vim'
+alias dotfiles='tmux new-window -n dotfiles -c ~/.dotfiles vim'
 alias raidstat='watch -n 0.1 cat /proc/mdstat'
 alias tf="terraform"
 alias SCBoot='$HOME/.vim/bundle/scvim/bin/start_pipe'
