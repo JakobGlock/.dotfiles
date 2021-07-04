@@ -22,6 +22,7 @@ cli_tools:
   - vlc
   - moc
   - xclip
+  - sct
 
 packages:
   - python3-venv
