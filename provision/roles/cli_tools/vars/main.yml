@@ -23,6 +23,7 @@ cli_tools:
   - moc
   - xclip
   - units
+  - sct
 
 packages:
   - python3-venv
