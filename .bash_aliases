@@ -36,6 +36,7 @@ alias mountSecret='sudo cryptsetup luksOpen /dev/sdb1 secret && sudo mount /dev/
 alias umountSecret='sudo umount /mnt/tmp && sudo cryptsetup luksClose /dev/mapper/secret'
 alias playSleepbotRadio='nvlc ~/Music/RadioStations/SleepBotRadio.pls'
 alias moc='mocp -m'
+alias startJack='jackd -R -d alsa -r 44100 -p 2048 -S --device "hw:Generic,0"'
 
 # Work Aliases live somewhere else
 # ------------------------------------------------------------------------------
