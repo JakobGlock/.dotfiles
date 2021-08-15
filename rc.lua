@@ -57,6 +57,7 @@ awful.spawn("gnome-terminal")
 awful.spawn("vivaldi")
 awful.spawn("thunderbird")
 awful.spawn("keepassxc")
+awful.spawn("dropbox")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
