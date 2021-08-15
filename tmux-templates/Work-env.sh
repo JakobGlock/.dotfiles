@@ -22,10 +22,10 @@ tmux send-keys 'vim' C-m
 tmux split-window -v -p 20 -c ~/dev/env
 
 # Kubespray Repository
-tmux new-window -c ~/dev/kubespray
-tmux rename-window "Kubespray"
+tmux new-window -c ~/dev/terraform
+tmux rename-window "Terraform"
 tmux send-keys 'vim' C-m
-tmux split-window -v -p 20 -c ~/dev/kubespray
+tmux split-window -v -p 20 -c ~/dev/terraform
 
 # Other Windows
 tmux new-window -c ~/dev
