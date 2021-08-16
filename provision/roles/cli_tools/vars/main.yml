@@ -43,6 +43,7 @@ packages:
   - libjack-jackd2-dev
   - libasound2-dev
   - dconf-editor
+  - awesome
 
 pip3_packages:
   - pycodestyle
