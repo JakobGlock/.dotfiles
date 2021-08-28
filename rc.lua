@@ -50,7 +50,14 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Terminus 8"
+beautiful.font                 = "Terminus 8"
+beautiful.taglist_bg_focus     = "#282828"
+beautiful.taglist_fg_focus     = "#FB4934"
+beautiful.tasklist_bg_normal   = "#282828"
+beautiful.tasklist_bg_minimize = "#282828"
+beautiful.tasklist_bg_focus    = "#7C6F64"
+beautiful.tasklist_fg_focus    = "#EBDBB2"
+beautiful.tasklist_fg_minimize = "#EBDBB2"
 
 -- Open these programs on startup
 awful.spawn("gnome-terminal")
@@ -208,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        buttons = tasklist_buttons,
     }
 
     s.myseperator = wibox.widget{
@@ -219,7 +226,13 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, bg = "#232832", height = "15", fg = "white" })
+    s.mywibox = awful.wibar({
+        position = "top",
+        screen = s,
+        bg = "#282828",
+        height = "15",
+        fg = "#EBDBB2"
+    })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
