@@ -246,8 +246,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            --mykeyboardlayout,
-            --wibox.widget.systray(),
+            wibox.widget.systray(),
 	    s.myseperator,
             awful.widget.watch('bash -c "uptime | awk \'{print $10}\' | sed \'s/,*$//g\'"', 30),
 	    s.myseperator,
