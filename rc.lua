@@ -132,9 +132,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 --mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -214,6 +211,13 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
+    s.myseperator = wibox.widget{
+        markup = ' | ',
+        align  = 'center',
+        valign = 'center',
+        widget = wibox.widget.textbox
+    }
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, bg = "#232832", height = "15", fg = "white" })
 
@@ -230,8 +234,13 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
+            --wibox.widget.systray(),
+	    s.myseperator,
+            awful.widget.watch('bash -c "uptime | awk \'{print $10}\' | sed \'s/,*$//g\'"', 30),
+	    s.myseperator,
+            awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"' , 30),
+	    s.myseperator,
+            wibox.widget.textclock("%Y-%m-%d %X", 1),
             s.mylayoutbox,
         },
     }
