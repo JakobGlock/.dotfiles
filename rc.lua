@@ -47,17 +47,25 @@ do
 end
 -- }}}
 
+-- {{{ My Variables
+gruvbox_dark = "#282828"
+gruvbox_light = "#FB4934"
+gruvbox_medium = "#7C6F64"
+gruvbox_text = "#EBDBB2"
+--- }}}
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font                 = "Terminus 8"
-beautiful.taglist_bg_focus     = "#282828"
-beautiful.taglist_fg_focus     = "#FB4934"
-beautiful.tasklist_bg_normal   = "#282828"
-beautiful.tasklist_bg_minimize = "#282828"
-beautiful.tasklist_bg_focus    = "#7C6F64"
-beautiful.tasklist_fg_focus    = "#EBDBB2"
-beautiful.tasklist_fg_minimize = "#EBDBB2"
+beautiful.taglist_bg_focus     = gruvbox_dark
+beautiful.taglist_fg_focus     = gruvbox_light
+beautiful.tasklist_bg_normal   = gruvbox_dark
+beautiful.tasklist_bg_minimize = gruvbox_dark
+beautiful.tasklist_bg_focus    = gruvbox_medium
+beautiful.tasklist_fg_focus    = gruvbox_text
+beautiful.tasklist_fg_minimize = gruvbox_text
+beautiful.systray_icon_spacing = 4
 
 -- Open these programs on startup
 awful.spawn("gnome-terminal")
@@ -181,7 +189,7 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
     -- Solid Color Wallpaper
-    gears.wallpaper.set("#232832")
+    gears.wallpaper.set(gruvbox_dark)
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -229,9 +237,9 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({
         position = "top",
         screen = s,
-        bg = "#282828",
+        bg = gruvbox_dark,
         height = "15",
-        fg = "#EBDBB2"
+        fg = gruvbox_text
     })
 
     -- Add widgets to the wibox
@@ -248,7 +256,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
 	    s.myseperator,
-            awful.widget.watch('bash -c "uptime | awk \'{print $10}\' | sed \'s/,*$//g\'"', 30),
+	    awful.widget.watch('bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"', 30),
 	    s.myseperator,
             awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"' , 30),
 	    s.myseperator,
