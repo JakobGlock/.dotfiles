@@ -68,11 +68,15 @@ beautiful.tasklist_fg_minimize = gruvbox_text
 beautiful.systray_icon_spacing = 4
 
 -- Open these programs on startup
-awful.spawn("gnome-terminal")
-awful.spawn("vivaldi")
-awful.spawn("thunderbird")
-awful.spawn("keepassxc")
-awful.spawn("dropbox")
+open_startup_apps = true
+if (open_startup_apps)
+	then
+		awful.spawn("gnome-terminal")
+		awful.spawn("vivaldi")
+		awful.spawn("thunderbird")
+		awful.spawn("keepassxc")
+		awful.spawn("dropbox")
+	end
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
