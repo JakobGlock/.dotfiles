@@ -256,6 +256,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
 	    s.myseperator,
+	    awful.widget.watch('bash -c "nmcli d wifi | grep "CC:D4:2E:C5:15:3C" | awk -v char=% \'{print $8char}\'"', 15),
+	    s.myseperator,
 	    awful.widget.watch('bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"', 30),
 	    s.myseperator,
             awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"' , 30),
