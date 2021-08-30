@@ -546,7 +546,7 @@ awful.rules.rules = {
        properties = { tag = "web", maximize = true}
      },
 
-     { rule = { class = "Gnome-terminal" },
+     { rule = { class = "Alacritty" },
        properties = { tag = "term", maximize = true }
      },
 
