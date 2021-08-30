@@ -50,7 +50,7 @@ end
 -- {{{ My Variables
 gruvbox_dark = "#282828"
 gruvbox_light = "#FB4934"
-gruvbox_medium = "#7C6F64"
+gruvbox_medium = "#504945"
 gruvbox_text = "#EBDBB2"
 --- }}}
 
