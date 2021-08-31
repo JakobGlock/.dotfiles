@@ -47,17 +47,36 @@ do
 end
 -- }}}
 
+-- {{{ My Variables
+gruvbox_dark = "#282828"
+gruvbox_light = "#FB4934"
+gruvbox_medium = "#504945"
+gruvbox_text = "#EBDBB2"
+--- }}}
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Terminus 8"
+beautiful.font                 = "Terminus 8"
+beautiful.taglist_bg_focus     = gruvbox_dark
+beautiful.taglist_fg_focus     = gruvbox_light
+beautiful.tasklist_bg_normal   = gruvbox_dark
+beautiful.tasklist_bg_minimize = gruvbox_dark
+beautiful.tasklist_bg_focus    = gruvbox_medium
+beautiful.tasklist_fg_focus    = gruvbox_text
+beautiful.tasklist_fg_minimize = gruvbox_text
+beautiful.systray_icon_spacing = 4
 
 -- Open these programs on startup
-awful.spawn("gnome-terminal")
-awful.spawn("vivaldi")
-awful.spawn("thunderbird")
-awful.spawn("keepassxc")
-awful.spawn("dropbox")
+open_startup_apps = true
+if (open_startup_apps)
+	then
+		awful.spawn("Alacritty")
+		awful.spawn("vivaldi")
+		awful.spawn("thunderbird")
+		awful.spawn("keepassxc")
+		awful.spawn("dropbox")
+	end
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -132,9 +151,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 --mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -177,7 +193,7 @@ local tasklist_buttons = gears.table.join(
 
 local function set_wallpaper(s)
     -- Solid Color Wallpaper
-    gears.wallpaper.set("#232832")
+    gears.wallpaper.set(gruvbox_dark)
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -211,11 +227,24 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        buttons = tasklist_buttons,
+    }
+
+    s.myseperator = wibox.widget{
+        markup = ' | ',
+        align  = 'center',
+        valign = 'center',
+        widget = wibox.widget.textbox
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, bg = "#232832", height = "15", fg = "white" })
+    s.mywibox = awful.wibar({
+        position = "top",
+        screen = s,
+        bg = gruvbox_dark,
+        height = "15",
+        fg = gruvbox_text
+    })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -229,9 +258,15 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            --mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
+	    s.myseperator,
+	    awful.widget.watch('bash -c "nmcli d wifi | grep "CC:D4:2E:C5:15:3C" | awk -v char=% \'{print $8char}\'"', 15),
+	    s.myseperator,
+	    awful.widget.watch('bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"', 30),
+	    s.myseperator,
+            awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"' , 30),
+	    s.myseperator,
+            wibox.widget.textclock("%Y-%m-%d %X", 1),
             s.mylayoutbox,
         },
     }
@@ -511,7 +546,7 @@ awful.rules.rules = {
        properties = { tag = "web", maximize = true}
      },
 
-     { rule = { class = "Gnome-terminal" },
+     { rule = { class = "Alacritty" },
        properties = { tag = "term", maximize = true }
      },
 
