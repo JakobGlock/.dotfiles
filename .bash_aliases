@@ -18,6 +18,7 @@ alias gs='git status'
 alias gp='git pull'
 alias gd='git diff'
 alias gb='git branch'
+alias gcb='git branch | sed -n "/\* /s///p"'
 
 # Tmux Aliases
 # ------------------------------------------------------------------------------
