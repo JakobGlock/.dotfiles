@@ -71,7 +71,7 @@ beautiful.systray_icon_spacing = 4
 open_startup_apps = true
 if (open_startup_apps)
 	then
-		awful.spawn("Alacritty")
+		awful.spawn("alacritty")
 		awful.spawn("vivaldi")
 		awful.spawn("thunderbird")
 		awful.spawn("keepassxc")

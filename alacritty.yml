@@ -27,6 +27,7 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
+
 key_bindings:
   - { key: LBracket, mods: Command, chars: "\x5c\x70" }
   - { key: RBracket, mods: Command, chars: "\x5c\x6e" }
