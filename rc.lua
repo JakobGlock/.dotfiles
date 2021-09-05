@@ -75,7 +75,7 @@ if (open_startup_apps)
 		awful.spawn("vivaldi")
 		awful.spawn("thunderbird")
 		awful.spawn("keepassxc")
-		awful.spawn("dropbox")
+		awful.spawn("dropbox start")
 	end
 
 -- This is used later as the default terminal and editor to run.
@@ -262,7 +262,7 @@ awful.screen.connect_for_each_screen(function(s)
 	    s.myseperator,
 	    awful.widget.watch('bash -c "sensors | grep Tdie | awk \'{print $2}\'"', 15),
 	    s.myseperator,
-	    awful.widget.watch('bash -c "nmcli d wifi | grep "CC:D4:2E:C5:15:3C" | awk -v char=% \'{print $8char}\'"', 15),
+	    awful.widget.watch('bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"', 15),
 	    s.myseperator,
 	    awful.widget.watch('bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"', 30),
 	    s.myseperator,
