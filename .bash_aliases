@@ -4,7 +4,7 @@ alias ..='cd ..'
 alias .-='cd -'
 alias .~='cd ~'
 alias hibernate='systemctl suspend'
-alias lockscreen='i3lock-fancy -g'
+alias lockscreen='i3lock-fancy -g -- scrot -z'
 alias sudo='sudo '
 alias lsa='ls -lsah'
 
