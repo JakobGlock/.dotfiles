@@ -24,6 +24,7 @@ cli_tools:
   - xclip
   - units
   - sct
+  - i3lock-fancy
 
 packages:
   - python3-venv
