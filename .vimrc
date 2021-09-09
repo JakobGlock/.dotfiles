@@ -28,6 +28,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'google/vim-jsonnet'
+Plugin 'vimwiki/vimwiki'
 " ...
 
 " Plugins need to be added before this line
@@ -154,6 +155,13 @@ nmap <silent> <leader>k :NERDTreeToggle<cr>
 
 " expand to the path of the file in the current buffer
 nmap <silent> <leader>y :NERDTreeFind<cr>
+
+
+
+
+" VimWiki settings
+" ...................................................
+filetype plugin on
 
 
 
