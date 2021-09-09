@@ -525,6 +525,23 @@ globalkeys =
             menubar.show()
         end,
         {description = "show the menubar", group = "launcher"}
+    ),
+    -- Custom Bindings
+    awful.key(
+        {modkey},
+        "l",
+        function()
+            awful.spawn("i3lock-fancy -g")
+        end,
+        {description = "Lock the screen", group = "launcher"}
+    ),
+    awful.key(
+        {modkey},
+        "h",
+        function()
+            awful.spawn.with_shell("systemctl suspend; i3lock-fancy -g -- scrot -z;")
+        end,
+        {description = "Suspend the machine", group = "launcher"}
     )
 )
 
