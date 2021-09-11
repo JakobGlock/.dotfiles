@@ -161,8 +161,7 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 
 " VimWiki settings
 " ...................................................
-filetype plugin on
-
+let g:vimwiki_list = [{'auto_diary_index': 1}]
 
 
 
@@ -205,3 +204,6 @@ nnoremap <silent> <F10> :Git diff<CR>
 
 " Allowing editing of protected files
 cmap w!! w !sudo tee > /dev/null %
+
+" Insert the current date / time
+:nnoremap <Leader>now :put =strftime('%Y/%m/%d %H:%M:%S')<CR>
