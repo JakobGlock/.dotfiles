@@ -4,10 +4,10 @@
 tmux kill-window -a
 
 # Cheatsheet Window
-tmux new-window -c ~/dev/tools/cheatsheets
-tmux rename-window 'CheatSheet'
-tmux send-keys 'vim sysadmin.md' C-m
-tmux split-window -v -p 20 -c ~/dev/tools/cheatsheets
+tmux new-window -c ~/vimwiki
+tmux rename-window 'VimWiki'
+tmux send-keys 'vim index.wiki' C-m
+tmux split-window -v -p 20 -c ~/vimwiki
 
 # Platform Repository
 tmux new-window -c ~/dev/platform
