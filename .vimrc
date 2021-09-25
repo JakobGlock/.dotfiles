@@ -207,3 +207,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Insert the current date / time
 :nnoremap <Leader>now :put =strftime('%Y/%m/%d %H:%M:%S')<CR>
+
+" Go to next result in vimwiki search result
+nnoremap <leader>wl :lnext<CR>
