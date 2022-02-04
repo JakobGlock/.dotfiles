@@ -127,6 +127,9 @@ set noswapfile
 " Highlight 80th column in Python file
 autocmd FileType python set colorcolumn=80
 
+" Highlight 90th coloum in Wiki files
+autocmd FileType vimwiki set colorcolumn=90
+
 " Remove all tailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
