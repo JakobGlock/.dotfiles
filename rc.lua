@@ -89,6 +89,8 @@ if (open_startup_apps) then
     awful.spawn("keepassxc")
     awful.spawn("dropbox start")
     awful.spawn("spotify")
+    awful.spawn("steam")
+    awful.spawn("discord")
 end
 
 -- This is used later as the default terminal and editor to run.
@@ -241,7 +243,7 @@ awful.screen.connect_for_each_screen(
         set_wallpaper(s)
 
         -- Each screen has its own tag table.
-        awful.tag({"term", "web", "music", "mail", "pass", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
+        awful.tag({"term", "web", "music", "mail", "pass", "steam", "discord", "8", "9"}, s, awful.layout.layouts[1])
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
@@ -798,6 +800,14 @@ awful.rules.rules = {
     {
         rule = {class = "Spotify"},
         properties = {tag = "music", maximize = true}
+    },
+    {
+        rule = {class = "Steam"},
+        properties = {tag = "steam", maximize = true}
+    },
+    {
+        rule = {class = "discord"},
+        properties = {tag = "discord", maximize = true}
     }
 }
 -- }}}
