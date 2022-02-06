@@ -25,6 +25,7 @@ cli_tools:
   - units
   - sct
   - i3lock-fancy
+  - feh
 
 packages:
   - python3-venv
