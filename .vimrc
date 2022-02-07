@@ -167,8 +167,8 @@ let g:vimwiki_list = [{'auto_diary_index': 1}]
 autocmd FileType vimwiki set colorcolumn=90
 
 " VimWiki headers colors
-hi x177_Violet ctermfg=177 guifg=#d787ff "rgb=215,135,255"
-hi link VimwikiHeader1 x177_Violet
+hi x196_Red1 ctermfg=196 guifg=#ff0000 "rgb=255,0,0"
+hi link VimwikiHeader1 x196_Red1
 
 hi x028_Green4 ctermfg=28 guifg=#008700 "rgb=0,135,0"
 hi link VimwikiHeader2 x028_Green4
@@ -178,6 +178,9 @@ hi link VimwikiHeader3 x074_SkyBlue3
 
 hi x196_Red1 ctermfg=196 guifg=#ff0000 "rgb=255,0,0"
 hi link VimwikiHeader4 x196_Red1
+
+hi x177_Violet ctermfg=177 guifg=#d787ff "rgb=215,135,255"
+hi link VimwikiHeader5 x177_Violet
 
 
 
