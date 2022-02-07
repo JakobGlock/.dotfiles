@@ -127,9 +127,6 @@ set noswapfile
 " Highlight 80th column in Python file
 autocmd FileType python set colorcolumn=80
 
-" Highlight 90th coloum in Wiki files
-autocmd FileType vimwiki set colorcolumn=90
-
 " Remove all tailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -165,6 +162,23 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 " VimWiki settings
 " ...................................................
 let g:vimwiki_list = [{'auto_diary_index': 1}]
+
+" Highlight 90th coloum in Wiki files
+autocmd FileType vimwiki set colorcolumn=90
+
+" VimWiki headers colors
+hi x177_Violet ctermfg=177 guifg=#d787ff "rgb=215,135,255"
+hi link VimwikiHeader1 x177_Violet
+
+hi x028_Green4 ctermfg=28 guifg=#008700 "rgb=0,135,0"
+hi link VimwikiHeader2 x028_Green4
+
+hi x074_SkyBlue3 ctermfg=74 guifg=#5fafd7 "rgb=95,175,215
+hi link VimwikiHeader3 x074_SkyBlue3
+
+hi x196_Red1 ctermfg=196 guifg=#ff0000 "rgb=255,0,0"
+hi link VimwikiHeader4 x196_Red1
+
 
 
 
