@@ -3,17 +3,17 @@
   connection: local
 
   roles:
-    - update_packages
-    - cli_tools
-    - docker
-    - vagrant
-    - steam
-    - keepassxc
-    - vivaldi
-    - dropbox
-    - inkscape
-    - terraform
-    - azure_cli
-    - setup_gui
+    #- update_packages
+    #- cli_tools
+    #- docker
+    #- vagrant
+      #- steam
+      #- keepassxc
+      #- vivaldi
+      #- dropbox
+      #- inkscape
+      #- terraform
+      #- azure_cli
+      #- setup_gui
     - bashrc
     - terminal

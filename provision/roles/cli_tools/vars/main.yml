@@ -51,6 +51,6 @@ pip3_packages:
   - pycodestyle
   - flake8
   - pylint
-  - ansible-lint
+    #  - ansible-lint
   - psutil
   - yamllint

@@ -84,13 +84,11 @@ beautiful.systray_icon_spacing = 4
 open_startup_apps = true
 if (open_startup_apps) then
     awful.spawn("alacritty")
-    awful.spawn("vivaldi")
     awful.spawn("thunderbird")
     awful.spawn("keepassxc")
-    awful.spawn("dropbox start")
-    awful.spawn("spotify")
-    awful.spawn("steam")
-    awful.spawn("discord")
+    awful.spawn("teams")
+    awful.spawn("slack")
+    awful.spawn("firefox")
 end
 
 -- This is used later as the default terminal and editor to run.
@@ -243,7 +241,7 @@ awful.screen.connect_for_each_screen(
         set_wallpaper(s)
 
         -- Each screen has its own tag table.
-        awful.tag({"term", "web", "music", "mail", "pass", "steam", "discord", "8", "9"}, s, awful.layout.layouts[1])
+        awful.tag({"term", "web", "mail", "pass", "chat", "6", "7", "8", "9"}, s, awful.layout.layouts[2])
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
@@ -300,16 +298,30 @@ awful.screen.connect_for_each_screen(
                 layout = wibox.layout.fixed.horizontal,
                 wibox.widget.systray(),
                 s.myseperator,
-                awful.widget.watch('bash -c "sensors | grep Tdie | awk \'{print $2}\'"', 15),
+                awful.widget.watch(
+		    'bash -c "sensors | grep Package | awk \'{print $4}\'"',
+		    15
+		),
                 s.myseperator,
-                awful.widget.watch('bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"', 15),
+                awful.widget.watch(
+		    'bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"',
+		    15
+		),
                 s.myseperator,
                 awful.widget.watch(
                     'bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"',
                     30
                 ),
                 s.myseperator,
-                awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"', 30),
+                awful.widget.watch(
+		    'bash -c "free -h | awk \'/^Mem/ {print $3}\'"',
+		    30
+		),
+                s.myseperator,
+		awful.widget.watch(
+		    'bash -c "upower -i $(upower -e | grep \'BAT\') | grep percentage | awk -v char=B: \'{print char$2}\'"',
+		    30
+		),
                 s.myseperator,
                 wibox.widget.textclock("%Y-%m-%d %X", 1),
                 s.mylayoutbox
@@ -782,32 +794,50 @@ awful.rules.rules = {
         properties = {floating = true}
     },
     {
-        rule = {class = "Vivaldi-stable"},
-        properties = {tag = "web", maximize = true}
+        rule = {class = "firefox"},
+        properties = {
+		tag = "web",
+		maximize = true
+	}
     },
     {
         rule = {class = "Alacritty"},
-        properties = {tag = "term", maximize = true}
+        properties = {
+		tag = "term",
+		maximize = true
+	}
     },
     {
         rule_any = {class = {"Thunderbird", "mail"}},
-        properties = {tag = "mail", maximize = true}
+        properties = {
+		tag = "mail",
+		maximize = true
+	}
     },
     {
         rule = {class = "KeePassXC"},
-        properties = {tag = "pass", maximize = true}
+        properties = {
+		tag = "pass",
+		maximize = true
+	}
     },
     {
-        rule = {class = "Spotify"},
-        properties = {tag = "music", maximize = true}
+        rule = {class = "Slack"},
+        properties = {
+		tag = "chat",
+		maximized_vertical = true,
+		width = 960,
+		placement = awful.placement.left
+	}
     },
     {
-        rule = {class = "Steam"},
-        properties = {tag = "steam", maximize = true}
-    },
-    {
-        rule = {class = "discord"},
-        properties = {tag = "discord", maximize = true}
+        rule = {class = "Microsoft Teams - Preview"},
+        properties = {
+		tag = "chat",
+		maximized_vertical = true,
+		width = 960,
+		placement = awful.placement.right
+	}
     }
 }
 -- }}}
