@@ -86,7 +86,7 @@ beautiful.tasklist_fg_minimize = gruvbox_text
 beautiful.systray_icon_spacing = 4
 
 -- Open these programs on startup
-open_startup_apps = false
+open_startup_apps = true
 if (open_startup_apps) then
     if (environment == "home") then
         awful.spawn("alacritty")
