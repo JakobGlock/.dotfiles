@@ -46,6 +46,7 @@ packages:
   - libasound2-dev
   - dconf-editor
   - awesome
+  - papirus-icon-theme
 
 pip3_packages:
   - pycodestyle
