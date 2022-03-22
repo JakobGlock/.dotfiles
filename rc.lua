@@ -65,6 +65,11 @@ gruvbox_dark = "#282828"
 gruvbox_light = "#FB4934"
 gruvbox_medium = "#504945"
 gruvbox_text = "#EBDBB2"
+
+--- THIS NEEDS TO BE SET IN /etc/profile
+--- export ENVIRONMENT="home"
+environment = os.getenv("ENVIRONMENT")
+assert(environment ~= nil, "Environment variable ENVIRONMENT not set")
 --- }}}
 
 -- {{{ Variable definitions
@@ -81,17 +86,27 @@ beautiful.tasklist_fg_minimize = gruvbox_text
 beautiful.systray_icon_spacing = 4
 
 -- Open these programs on startup
-open_startup_apps = true
+open_startup_apps = false
 if (open_startup_apps) then
-    awful.spawn("alacritty")
-    awful.spawn("vivaldi")
-    awful.spawn("thunderbird")
-    awful.spawn("keepassxc")
-    awful.spawn("dropbox start")
-    awful.spawn("spotify")
-    awful.spawn("steam")
-    awful.spawn("discord")
+    if (environment == "home") then
+        awful.spawn("alacritty")
+        awful.spawn("vivaldi")
+        awful.spawn("thunderbird")
+        awful.spawn("keepassxc")
+        awful.spawn("dropbox start")
+        awful.spawn("spotify")
+        awful.spawn("steam")
+        awful.spawn("discord")
+    else
+	awful.spawn("alacritty")
+        awful.spawn("thunderbird")
+        awful.spawn("keepassxc")
+	awful.spawn("teams")
+	awful.spawn("slack")
+	awful.spawn("firefox")
+    end
 end
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -243,7 +258,11 @@ awful.screen.connect_for_each_screen(
         set_wallpaper(s)
 
         -- Each screen has its own tag table.
-        awful.tag({"term", "web", "music", "mail", "pass", "steam", "discord", "8", "9"}, s, awful.layout.layouts[1])
+        if (environment == "home") then
+             awful.tag({"term", "web", "music", "mail", "pass", "steam", "discord", "8", "9"}, s, awful.layout.layouts[1])
+	else
+             awful.tag({"term", "web", "mail", "pass", "chat", "6", "7", "8", "9"}, s, awful.layout.layouts[2])
+	end
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
@@ -285,36 +304,98 @@ awful.screen.connect_for_each_screen(
         )
 
         -- Add widgets to the wibox
-        s.mywibox:setup {
-            layout = wibox.layout.align.horizontal,
-            {
-                -- Left widgets
-                layout = wibox.layout.fixed.horizontal,
-                mylauncher,
-                s.mytaglist,
-                s.mypromptbox
-            },
-            s.mytasklist, -- Middle widget
-            {
-                -- Right widgets
-                layout = wibox.layout.fixed.horizontal,
-                wibox.widget.systray(),
-                s.myseperator,
-                awful.widget.watch('bash -c "sensors | grep Tdie | awk \'{print $2}\'"', 15),
-                s.myseperator,
-                awful.widget.watch('bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"', 15),
-                s.myseperator,
-                awful.widget.watch(
-                    'bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"',
-                    30
-                ),
-                s.myseperator,
-                awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"', 30),
-                s.myseperator,
-                wibox.widget.textclock("%Y-%m-%d %X", 1),
-                s.mylayoutbox
+        if (environment == "home") then
+            s.mywibox:setup {
+                layout = wibox.layout.align.horizontal,
+                {
+                    -- Left widgets
+                    layout = wibox.layout.fixed.horizontal,
+                    mylauncher,
+                    s.mytaglist,
+                    s.mypromptbox
+                },
+                s.mytasklist, -- Middle widget
+                {
+                    -- Right widgets
+                    layout = wibox.layout.fixed.horizontal,
+                    wibox.widget.systray(),
+                    s.myseperator,
+                    awful.widget.watch(
+                        'bash -c "sensors | grep Tdie | awk \'{print $2}\'"',
+                        15
+                    ),
+                    s.myseperator,
+                    awful.widget.watch(
+                        'bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"',
+                        15
+                    ),
+                    s.myseperator,
+                    awful.widget.watch(
+                        'bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"',
+                        30
+                    ),
+                    s.myseperator,
+                    awful.widget.watch(
+                        'bash -c "free -h | awk \'/^Mem/ {print $3}\'"',
+                        30
+                    ),
+                    s.myseperator,
+                    wibox.widget.textclock(
+                        "%Y-%m-%d %X",
+                        1
+                    ),
+                    s.mylayoutbox
+                }
             }
-        }
+	else
+            s.mywibox:setup {
+                layout = wibox.layout.align.horizontal,
+                {
+                    -- Left widgets
+                    layout = wibox.layout.fixed.horizontal,
+                    mylauncher,
+                    s.mytaglist,
+                    s.mypromptbox
+                },
+                s.mytasklist, -- Middle widget
+                {
+                    -- Right widgets
+                    layout = wibox.layout.fixed.horizontal,
+                    wibox.widget.systray(),
+                    s.myseperator,
+                    awful.widget.watch(
+	    	        'bash -c "sensors | grep Package | awk \'{print $4}\'"',
+	    	        15
+	    	    ),
+                    s.myseperator,
+                    awful.widget.watch(
+	    	        'bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"',
+	    	        15
+	    	    ),
+                    s.myseperator,
+                    awful.widget.watch(
+                        'bash -c "uptime | sed -n -e \'s/^.*load average: //p\' | awk \'{print $1}\' | sed \'s/,*$//g\'"',
+                        30
+                    ),
+                    s.myseperator,
+                    awful.widget.watch(
+	    	        'bash -c "free -h | awk \'/^Mem/ {print $3}\'"',
+	    	        30
+	    	    ),
+                    s.myseperator,
+	    	    awful.widget.watch(
+	    	        'bash -c "upower -i $(upower -e | grep \'BAT\') | grep percentage | awk -v char=B: \'{print char$2}\'"',
+	    	        30
+	    	    ),
+                    s.myseperator,
+                    wibox.widget.textclock(
+                        "%Y-%m-%d %X",
+                        1
+                    ),
+                    s.mylayoutbox
+                }
+            }
+	end
     end
 )
 -- }}}
@@ -733,83 +814,181 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = {
-    -- All clients will match this rule.
-    {
-        rule = {},
-        properties = {
-            border_width = beautiful.border_width,
-            border_color = beautiful.border_normal,
-            focus = awful.client.focus.filter,
-            raise = true,
-            keys = clientkeys,
-            buttons = clientbuttons,
-            screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap + awful.placement.no_offscreen
-        }
-    },
-    -- Floating clients.
-    {
-        rule_any = {
-            instance = {
-                "DTA", -- Firefox addon DownThemAll.
-                "copyq", -- Includes session name in class.
-                "pinentry"
-            },
-            class = {
-                "Arandr",
-                "Blueman-manager",
-                "Gpick",
-                "Kruler",
-                "MessageWin", -- kalarm.
-                "Sxiv",
-                "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-                "Wpa_gui",
-                "veromix",
-                "xtightvncviewer"
-            },
-            -- Note that the name property shown in xprop might be set slightly after creation of the client
-            -- and the name shown there might not match defined rules here.
-            name = {
-                "Event Tester" -- xev.
-            },
-            role = {
-                "AlarmWindow", -- Thunderbird's calendar.
-                "ConfigManager", -- Thunderbird's about:config.
-                "pop-up" -- e.g. Google Chrome's (detached) Developer Tools.
+if (environment == "home") then
+    awful.rules.rules = {
+        -- All clients will match this rule.
+        {
+            rule = {},
+            properties = {
+                border_width = beautiful.border_width,
+                border_color = beautiful.border_normal,
+                focus = awful.client.focus.filter,
+                raise = true,
+                keys = clientkeys,
+                buttons = clientbuttons,
+                screen = awful.screen.preferred,
+                placement = awful.placement.no_overlap + awful.placement.no_offscreen
             }
         },
-        properties = {floating = true}
-    },
-    {
-        rule = {class = "Vivaldi-stable"},
-        properties = {tag = "web", maximize = true}
-    },
-    {
-        rule = {class = "Alacritty"},
-        properties = {tag = "term", maximize = true}
-    },
-    {
-        rule_any = {class = {"Thunderbird", "mail"}},
-        properties = {tag = "mail", maximize = true}
-    },
-    {
-        rule = {class = "KeePassXC"},
-        properties = {tag = "pass", maximize = true}
-    },
-    {
-        rule = {class = "Spotify"},
-        properties = {tag = "music", maximize = true}
-    },
-    {
-        rule = {class = "Steam"},
-        properties = {tag = "steam", maximize = true}
-    },
-    {
-        rule = {class = "discord"},
-        properties = {tag = "discord", maximize = true}
+        -- Floating clients.
+        {
+            rule_any = {
+                instance = {
+                    "DTA", -- Firefox addon DownThemAll.
+                    "copyq", -- Includes session name in class.
+                    "pinentry"
+                },
+                class = {
+                    "Arandr",
+                    "Blueman-manager",
+                    "Gpick",
+                    "Kruler",
+                    "MessageWin", -- kalarm.
+                    "Sxiv",
+                    "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+                    "Wpa_gui",
+                    "veromix",
+                    "xtightvncviewer"
+                },
+                -- Note that the name property shown in xprop might be set slightly after creation of the client
+                -- and the name shown there might not match defined rules here.
+                name = {
+                    "Event Tester" -- xev.
+                },
+                role = {
+                    "AlarmWindow", -- Thunderbird's calendar.
+                    "ConfigManager", -- Thunderbird's about:config.
+                    "pop-up" -- e.g. Google Chrome's (detached) Developer Tools.
+                }
+            },
+            properties = {floating = true}
+        },
+        {
+            rule = {class = "Vivaldi-stable"},
+            properties = {tag = "web", maximize = true}
+        },
+        {
+            rule = {class = "Alacritty"},
+            properties = {tag = "term", maximize = true}
+        },
+        {
+            rule_any = {class = {"Thunderbird", "mail"}},
+            properties = {tag = "mail", maximize = true}
+        },
+        {
+            rule = {class = "KeePassXC"},
+            properties = {tag = "pass", maximize = true}
+        },
+        {
+            rule = {class = "Spotify"},
+            properties = {tag = "music", maximize = true}
+        },
+        {
+            rule = {class = "Steam"},
+            properties = {tag = "steam", maximize = true}
+        },
+        {
+            rule = {class = "discord"},
+            properties = {tag = "discord", maximize = true}
+        }
     }
-}
+else
+    awful.rules.rules = {
+        -- All clients will match this rule.
+        {
+            rule = {},
+            properties = {
+                border_width = beautiful.border_width,
+                border_color = beautiful.border_normal,
+                focus = awful.client.focus.filter,
+                raise = true,
+                keys = clientkeys,
+                buttons = clientbuttons,
+                screen = awful.screen.preferred,
+                placement = awful.placement.no_overlap + awful.placement.no_offscreen
+            }
+        },
+        -- Floating clients.
+        {
+            rule_any = {
+                instance = {
+                    "DTA", -- Firefox addon DownThemAll.
+                    "copyq", -- Includes session name in class.
+                    "pinentry"
+                },
+                class = {
+                    "Arandr",
+                    "Blueman-manager",
+                    "Gpick",
+                    "Kruler",
+                    "MessageWin", -- kalarm.
+                    "Sxiv",
+                    "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+                    "Wpa_gui",
+                    "veromix",
+                    "xtightvncviewer"
+                },
+                -- Note that the name property shown in xprop might be set slightly after creation of the client
+                -- and the name shown there might not match defined rules here.
+                name = {
+                    "Event Tester" -- xev.
+                },
+                role = {
+                    "AlarmWindow", -- Thunderbird's calendar.
+                    "ConfigManager", -- Thunderbird's about:config.
+                    "pop-up" -- e.g. Google Chrome's (detached) Developer Tools.
+                }
+            },
+            properties = {floating = true}
+        },
+        {
+            rule = {class = "firefox"},
+            properties = {
+    		tag = "web",
+    		maximize = true
+    	}
+        },
+        {
+            rule = {class = "Alacritty"},
+            properties = {
+    		tag = "term",
+    		maximize = true
+    	}
+        },
+        {
+            rule_any = {class = {"Thunderbird", "mail"}},
+            properties = {
+    		tag = "mail",
+    		maximize = true
+    	}
+        },
+        {
+            rule = {class = "KeePassXC"},
+            properties = {
+    		tag = "pass",
+    		maximize = true
+    	}
+        },
+        {
+            rule = {class = "Slack"},
+            properties = {
+    		tag = "chat",
+    		maximized_vertical = true,
+    		width = 960,
+    		placement = awful.placement.left
+    	}
+        },
+        {
+            rule = {class = "Microsoft Teams - Preview"},
+            properties = {
+    		tag = "chat",
+    		maximized_vertical = true,
+    		width = 960,
+    		placement = awful.placement.right
+    	}
+        }
+    }
+end
 -- }}}
 
 -- {{{ Signals
