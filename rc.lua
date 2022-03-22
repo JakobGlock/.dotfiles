@@ -94,7 +94,7 @@ beautiful.tasklist_fg_minimize = gruvbox_text
 beautiful.systray_icon_spacing = 4
 
 -- Open these programs on startup
-open_startup_apps = true
+open_startup_apps = false
 if (open_startup_apps) then
     if (environment == "home") then
         awful.spawn("alacritty")
@@ -328,7 +328,9 @@ awful.screen.connect_for_each_screen(
                     layout = wibox.layout.fixed.horizontal,
                     wibox.widget.systray(),
                     s.myseperator,
-                    spotify_widget(),
+                    spotify_widget({
+		        font = 'Terminus 8'
+		    }),
                     s.myseperator,
                     awful.widget.watch(
                         'bash -c "sensors | grep Tdie | awk \'{print $2}\'"',
