@@ -66,11 +66,19 @@ gruvbox_light = "#FB4934"
 gruvbox_medium = "#504945"
 gruvbox_text = "#EBDBB2"
 
---- THIS NEEDS TO BE SET IN /etc/profile
---- export ENVIRONMENT="home"
+-- THIS NEEDS TO BE SET IN /etc/profile
+-- export ENVIRONMENT="home"
 environment = os.getenv("ENVIRONMENT")
 assert(environment ~= nil, "Environment variable ENVIRONMENT not set")
 --- }}}
+
+-- Load custom widgets from ~/.config/awesome/
+-- https://github.com/streetturtle/awesome-wm-widgets/tree/master/spotify-widget
+local spotify_widget
+if (environment == "home") then
+    spotify_widget = require("spotify-widget.spotify")
+end
+
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -319,6 +327,8 @@ awful.screen.connect_for_each_screen(
                     -- Right widgets
                     layout = wibox.layout.fixed.horizontal,
                     wibox.widget.systray(),
+                    s.myseperator,
+                    spotify_widget(),
                     s.myseperator,
                     awful.widget.watch(
                         'bash -c "sensors | grep Tdie | awk \'{print $2}\'"',
