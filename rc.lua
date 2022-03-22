@@ -109,8 +109,8 @@ if (open_startup_apps) then
 	awful.spawn("alacritty")
         awful.spawn("thunderbird")
         awful.spawn("keepassxc")
-	awful.spawn("teams")
 	awful.spawn("slack")
+	awful.spawn("teams")
 	awful.spawn("firefox")
     end
 end
