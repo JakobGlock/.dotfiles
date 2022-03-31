@@ -112,6 +112,7 @@ if (open_startup_apps) then
 	awful.spawn("slack")
 	awful.spawn("teams")
 	awful.spawn("firefox")
+	awful.spawn("prospect-mail")
     end
 end
 
@@ -971,7 +972,18 @@ else
             rule_any = {class = {"Thunderbird", "mail"}},
             properties = {
     		tag = "mail",
-    		maximize = true
+		maximized_vertical = true,
+		width = 1280,
+    		placement = awful.placement.left
+    	}
+        },
+        {
+            rule = {class = "Prospect Mail"},
+            properties = {
+    		tag = "mail",
+    		maximized_vertical = true,
+		width = 1280,
+    		placement = awful.placement.right
     	}
         },
         {
