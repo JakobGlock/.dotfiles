@@ -353,6 +353,11 @@ awful.screen.connect_for_each_screen(
                         30
                     ),
                     s.myseperator,
+                    awful.widget.watch(
+		        'bash -c "nvidia-smi -q -d temperature | grep \'GPU Current Temp\' | awk \'{print $5$6}\'"',
+                        15
+                    ),
+                    s.myseperator,
                     wibox.widget.textclock(
                         "%Y-%m-%d %X",
                         1
