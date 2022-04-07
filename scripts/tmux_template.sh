@@ -41,6 +41,9 @@ do
         "SC-env.sh")
             new_tmux_session "$SEARCH_DIR/$opt"
             ;;
+        "Old-work-env.sh")
+            new_tmux_session "$SEARCH_DIR/$opt"
+            ;;
         "Work-env.sh")
             new_tmux_session "$SEARCH_DIR/$opt"
             ;;
