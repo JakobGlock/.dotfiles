@@ -106,12 +106,13 @@ if (open_startup_apps) then
         awful.spawn("steam")
         awful.spawn("discord")
     else
-	awful.spawn("alacritty")
+        awful.spawn("alacritty")
         awful.spawn("thunderbird")
         awful.spawn("keepassxc")
-	awful.spawn("slack")
-	awful.spawn("teams")
-	awful.spawn("firefox")
+        awful.spawn("slack")
+        awful.spawn("teams")
+        awful.spawn("firefox")
+        awful.spawn("prospect-mail")
     end
 end
 
@@ -329,11 +330,16 @@ awful.screen.connect_for_each_screen(
                     wibox.widget.systray(),
                     s.myseperator,
                     spotify_widget({
-		        font = 'Terminus 8'
-		    }),
+                        font = 'Terminus 8'
+                    }),
                     s.myseperator,
                     awful.widget.watch(
                         'bash -c "sensors | grep Tdie | awk \'{print $2}\'"',
+                        15
+                    ),
+                    s.myseperator,
+                    awful.widget.watch(
+                        'bash -c "nvidia-smi -q -d temperature | grep \'GPU Current Temp\' | awk \'{print $5$6}\'"',
                         15
                     ),
                     s.myseperator,
@@ -350,11 +356,6 @@ awful.screen.connect_for_each_screen(
                     awful.widget.watch(
                         'bash -c "free -h | awk \'/^Mem/ {print $3}\'"',
                         30
-                    ),
-                    s.myseperator,
-                    awful.widget.watch(
-		        'bash -c "nvidia-smi -q -d temperature | grep \'GPU Current Temp\' | awk \'{print $5$6}\'"',
-                        15
                     ),
                     s.myseperator,
                     wibox.widget.textclock(
@@ -961,48 +962,59 @@ else
         {
             rule = {class = "firefox"},
             properties = {
-    		tag = "web",
-    		maximize = true
-    	}
+                tag = "web",
+                maximize = true
+        }
         },
         {
             rule = {class = "Alacritty"},
             properties = {
-    		tag = "term",
-    		maximize = true
-    	}
+                tag = "term",
+                maximize = true
+        }
         },
         {
             rule_any = {class = {"Thunderbird", "mail"}},
             properties = {
-    		tag = "mail",
-    		maximize = true
-    	}
+                tag = "mail",
+                maximized_vertical = true,
+                width = 1280,
+                placement = awful.placement.left
+        }
+        },
+        {
+            rule = {class = "Prospect Mail"},
+            properties = {
+                tag = "mail",
+                maximized_vertical = true,
+                width = 1280,
+                placement = awful.placement.right
+        }
         },
         {
             rule = {class = "KeePassXC"},
             properties = {
-    		tag = "pass",
-    		maximize = true
-    	}
+                tag = "pass",
+                maximize = true
+        }
         },
         {
             rule = {class = "Slack"},
             properties = {
-    		tag = "chat",
-    		maximized_vertical = true,
-    		width = 960,
-    		placement = awful.placement.left
-    	}
+                tag = "chat",
+                maximized_vertical = true,
+                width = 960,
+                placement = awful.placement.left
+        }
         },
         {
             rule = {class = "Microsoft Teams - Preview"},
             properties = {
-    		tag = "chat",
-    		maximized_vertical = true,
-    		width = 960,
-    		placement = awful.placement.right
-    	}
+                tag = "chat",
+                maximized_vertical = true,
+                width = 960,
+                placement = awful.placement.right
+        }
         }
     }
 end
