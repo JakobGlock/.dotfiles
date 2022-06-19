@@ -166,6 +166,9 @@ let g:vimwiki_list = [{'auto_diary_index': 1}]
 " Highlight 90th coloum in Wiki files
 autocmd FileType vimwiki set colorcolumn=90
 
+" Turn on spell checking by default for vimwiki entries only
+autocmd FileType vimwiki set spell spelllang=en_gb
+
 " VimWiki headers colors
 hi x196_Red1 ctermfg=196 guifg=#ff0000 "rgb=255,0,0"
 hi link VimwikiHeader1 x196_Red1
