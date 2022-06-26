@@ -39,6 +39,7 @@ alias umountSecret='sudo umount /mnt/tmp && sudo cryptsetup luksClose /dev/mappe
 alias playSleepbotRadio='nvlc ~/Music/RadioStations/SleepBotRadio.pls'
 alias moc='mocp -m'
 alias startJack='jackd -R -d alsa -r 44100 -p 2048 -S --device "hw:Generic,0"'
+alias start-qjackctl="pasuspender -- qjackctl"
 alias vimwiki="tmux new-window -n vimwiki vim -c VimwikiIndex"
 alias deploy-vimwiki="ansible-playbook -i ~/dev/Ansible/hosts.ini ~/dev/Ansible/deploy_vimwiki.yml -K"
 
