@@ -26,6 +26,7 @@ cli_tools:
   - sct
   - i3lock-fancy
   - feh
+  - speedtest-cli
 
 packages:
   - python3-venv
