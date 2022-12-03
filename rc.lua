@@ -890,7 +890,7 @@ if (environment == "home") then
             properties = {tag = "term", maximize = true}
         },
         {
-            rule_any = {class = {"Thunderbird", "mail"}},
+            rule_any = {class = {"thunderbird", "Mail"}},
             properties = {tag = "mail", maximize = true}
         },
         {
@@ -974,7 +974,7 @@ else
         }
         },
         {
-            rule_any = {class = {"Thunderbird", "mail"}},
+            rule_any = {class = {"thunderbird", "Mail"}},
             properties = {
                 tag = "mail",
                 maximized_vertical = true,
