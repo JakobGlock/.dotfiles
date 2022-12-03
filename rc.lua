@@ -334,7 +334,7 @@ awful.screen.connect_for_each_screen(
                     }),
                     s.myseperator,
                     awful.widget.watch(
-                        'bash -c "sensors | grep Tdie | awk \'{print $2}\'"',
+                        'bash -c "sensors | grep Tctl | awk \'{print $2}\'"',
                         15
                     ),
                     s.myseperator,
@@ -344,7 +344,7 @@ awful.screen.connect_for_each_screen(
                     ),
                     s.myseperator,
                     awful.widget.watch(
-                        'bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $8char}\'"',
+                        'bash -c "nmcli d wifi | grep \'*\' | awk -v char=% \'{print $9char}\'"',
                         15
                     ),
                     s.myseperator,
