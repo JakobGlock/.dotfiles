@@ -29,6 +29,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'google/vim-jsonnet'
 Plugin 'vimwiki/vimwiki'
+Plugin 'tidalcycles/vim-tidal'
 " ...
 
 " Plugins need to be added before this line
@@ -79,6 +80,15 @@ autocmd BufNewFile,BufRead *.rs
     \ setlocal sw=4 |
     \ setlocal expandtab |
     \ setlocal autoindent
+
+"tidal Indents
+autocmd BufNewFile,BufRead *.tidal
+    \ setlocal ts=2 |
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
+    \ setlocal expandtab |
+    \ setlocal autoindent |
+    \ setlocal cindent
 
 " Indent marker plugin
 " let g:indentLine_setColors = 0
@@ -236,3 +246,16 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Go to next result in vimwiki search result
 nnoremap <leader>wl :lnext<CR>
+
+
+
+
+" TidalCycles stuff
+" ..................................................
+
+" Silence current line
+let @s = '0f$isilence -- ^[<80><fd>a^E'
+
+" Unsilence current line
+let @d = '0f-xxi<80>kb<80>kb<80>kb<80>kb<80>kb<80>kb<80>kb<80>kb<80>kb^[<80><fd>a^E'
+
