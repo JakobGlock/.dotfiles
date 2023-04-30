@@ -27,6 +27,7 @@ cli_tools:
   - i3lock-fancy
   - feh
   - speedtest-cli
+  - newsboat
 
 packages:
   - python3-venv
