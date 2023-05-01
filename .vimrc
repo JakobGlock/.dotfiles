@@ -30,6 +30,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'google/vim-jsonnet'
 Plugin 'vimwiki/vimwiki'
 Plugin 'tidalcycles/vim-tidal'
+Plugin 'christoomey/vim-tmux-navigator'
 " ...
 
 " Plugins need to be added before this line
