@@ -28,6 +28,7 @@ cli_tools:
   - feh
   - speedtest-cli
   - newsboat
+  - urlview
 
 packages:
   - python3-venv
