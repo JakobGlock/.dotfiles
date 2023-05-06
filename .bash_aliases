@@ -45,6 +45,7 @@ alias deploy-vimwiki="ansible-playbook -i ~/dev/Ansible/hosts.ini ~/dev/Ansible/
 alias set-audio-hdmi="pactl set-default-sink 'alsa_output.pci-0000_0b_00.1.hdmi-stereo'"
 alias set-audio-analog="pactl set-default-sink 'alsa_output.pci-0000_0d_00.3.analog-stereo'"
 alias nb="newsboat"
+alias teamspeak="/usr/local/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh"
 
 # Work Aliases live somewhere else
 # ------------------------------------------------------------------------------
