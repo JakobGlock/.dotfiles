@@ -46,7 +46,7 @@ alias set-audio-hdmi="pactl set-default-sink 'alsa_output.pci-0000_0b_00.1.hdmi-
 alias set-audio-analog="pactl set-default-sink 'alsa_output.pci-0000_0d_00.3.analog-stereo'"
 alias nb="newsboat"
 alias teamspeak="/usr/local/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh"
-alias makeart="tmux new-window -n art -c ~/dev/Python/Generative-Art vim; tmux splitw -h -p 40;"
+alias makeart="tmux new-window -n art -c ~/dev/Python/Generative-Art vim; tmux splitw -h -p 40 -c ~/dev/Python/Generative-Art;"
 
 # Work Aliases live somewhere else
 # ------------------------------------------------------------------------------
