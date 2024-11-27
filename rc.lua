@@ -83,7 +83,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Terminus 8"
+beautiful.font = "Terminus 14"
 beautiful.taglist_bg_focus = gruvbox_dark
 beautiful.taglist_fg_focus = gruvbox_light
 beautiful.tasklist_bg_normal = gruvbox_dark
@@ -330,7 +330,7 @@ awful.screen.connect_for_each_screen(
                     wibox.widget.systray(),
                     s.myseperator,
                     spotify_widget({
-                        font = 'Terminus 8'
+                        font = 'Terminus 12'
                     }),
                     s.myseperator,
                     awful.widget.watch(
