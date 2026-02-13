@@ -223,6 +223,9 @@ autocmd FileType cpp map <buffer> <leader>r :w<CR>:exec '!make -j16 && make run'
 " Run the current go script in buffer
 autocmd FileType go map <buffer> <leader>r :w<CR>:exec '!go run' shellescape(@%, 1)<CR>
 
+" Run the current go script in buffer
+autocmd FileType processing map <buffer> <leader>r :w<CR>:exec '!processing --sketch %:r --run'<CR>
+
 " F-Keys
 nnoremap <silent> <F2> :so ~/.vimrc<CR>
 set pastetoggle=<F3>

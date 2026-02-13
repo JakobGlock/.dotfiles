@@ -47,6 +47,11 @@ alias set-audio-analog="pactl set-default-sink 'alsa_output.pci-0000_0d_00.3.ana
 alias nb="newsboat"
 alias teamspeak="/usr/local/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh"
 alias makeart="tmux new-window -n art -c ~/dev/Python/Generative-Art vim; tmux splitw -h -p 40 -c ~/dev/Python/Generative-Art;"
+alias processing="/usr/share/processing/processing-4.3/processing-java"
+
+# Functions
+# ------------------------------------------------------------------------------
+function sendtoplotter { filename=$(basename "$1"); scp $1 RaspberryPi:/home/jakob/svg/$filename; }
 
 # Work Aliases live somewhere else
 # ------------------------------------------------------------------------------

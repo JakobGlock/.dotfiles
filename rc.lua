@@ -414,6 +414,13 @@ awful.screen.connect_for_each_screen(
                 }
             }
 	end
+
+        for _, t in ipairs(s.tags) do
+          if t.name == "steam" then
+            t:view_only()
+            break
+          end
+        end
     end
 )
 -- }}}
@@ -644,6 +651,14 @@ globalkeys =
             awful.spawn.with_shell("systemctl suspend; i3lock-fancy -g -- scrot -z;")
         end,
         {description = "Suspend the machine", group = "launcher"}
+    ),
+    awful.key(
+        {modkey},
+        "`",
+        function()
+            awful.spawn.with_shell("shutdown now")
+        end,
+        {description = "Shutdown the machine", group = "launcher"}
     )
 )
 
